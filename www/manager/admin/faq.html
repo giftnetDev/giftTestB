@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" /> 
+<title>BPOS 관리자</title>
+<link rel="STYLESHEET" type="text/css" href="../css/bbs.css" />
+<link rel="STYLESHEET" type="text/css" href="../css/layout.css" />
+<script src="../js/common.js" language="javascript"></script>
+</head>
+
+<body id="bg">
+<div id="wrap">
+	<div id="brand">
+		<h1><a href="#"><img src="../images/logo.gif" alt="Microsoft BPOS" /></a></h1>
+		<p> 님 환영합니다. <a href="../login/logout.asp"><img src="../images/common/btn/btn_logout.gif" alt="로그아웃" /></a></p>
+		<!--ul>
+			<li><a href="#"><img src="../images/common/btn/link_01.gif" alt="함양한옥 관리" /></a><a href="#"><img src="../images/common/btn/link_02.gif" alt="아름지기 공모전 관리" /></a></li>
+		</ul-->
+	</div>
+
+	<div id="left_menu">
+		<ul class="leftmenutree">
+			<li><a href="#">공모전 게시판 관리</a>
+				<ul class="subtree">
+					<li><a href="/manager/admin/admin.asp" onfocus="blur();">관리자관리</a></li>
+					<li><a href="/manager/member/member.asp" onfocus="blur();">신청관리</a></li>
+					<li><a href="/manager/faq/faq.asp" onfocus="blur();">FAQ관리</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="link">
+			<li><a href="#"></a></li>
+		</ul>
+		<p class="left_munu_last"></p>
+	</div><SCRIPT LANGUAGE="JavaScript">
+<!--
+	function search_chk(){
+		if(document.frm.searchString.value==""){
+			alert('검색어를 입력해주세요');
+			document.frm.searchString.focus();
+			return;
+		}
+	}
+//-->
+</SCRIPT>
+<FORM name="frm" METHOD=POST ACTION="faq.asp" style="border:0">
+<input type="hidden" name="mode" value="LIST">
+<input type="hidden" name="page" value="5">
+<input type="hidden" name="seq" value="">
+
+	<div id="contents">
+		<p><a href="#">홈</a> &gt; FAQ관리</p>
+		<div id="tit01">
+			<h2>FAQ관리</h2>
+			<div id="sch">
+				<ul>
+					<li>
+						<select name="searchField" style="width:50px;">
+							<option value="title" selected>제목</option>
+							<option value="content" >내용</option>
+						</select>
+					</li>
+					<li><input type="text" name="searchString" value="" style="width:104px;" class="box01" /><a href="#d" onclick="search_chk();" onfocus="blur();"><img src="../images/common/btn/btn_go01.gif" alt="go" /></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="bbsList">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<colgroup>
+					<col width="10%" />
+					<col width="20%" />
+					<col width="45%" />
+					<col width="15%" />
+					<col width="10%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>구분</th>
+						<th>제목</th>
+						<th>등록일</th>
+						<th>활성상태</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td class="font">2</td>
+						<td class="font">Exchange</td>
+						<td class="lpd10"><a href="#d" onclick="goModify('2');" onfocus="blur();">가나다라</a></td>
+						<td class="font">2009/10/12</td>
+						<td class="font">Y</td>
+					</tr>
+					
+					<tr>
+						<td class="font">1</td>
+						<td class="font">Sharepoint</td>
+						<td class="lpd10"><a href="#d" onclick="goModify('1');" onfocus="blur();">test2</a></td>
+						<td class="font">2009/10/12</td>
+						<td class="font">Y</td>
+					</tr>
+					
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="5"></td>
+					</tr>
+				</tfoot>
+			</table>
+			<span class="btn_write"><a href="#d" onclick="goWrite();" onfocus="blur();"><img src="../images/common/btn/btn_write.gif" alt="글쓰기" /></a></span>
+		</div>
+					<SCRIPT LANGUAGE="JavaScript">
+<!--
+function goPageList(p)
+{
+	document.frm.page.value=p;
+	goList();
+}
+//-->
+</SCRIPT>
+
+<div id="bbspgno">
+	<ul class="bnk">
+
+		<li class="bnk"><a href="#" ONClick="JavaScript:goPageList('4')" onfocus="blur();"><img src="../images/common/bbs/bu_prev01.gif" alt="이전" /></a></li>
+
+		
+		<li class="bnk"><a href="JavaScript:goPageList('1')" onfocus="blur();">1</a></li>
+
+		<li class="bnk"><img src="../images/common/bbs/ver_bar.gif" /></li>
+
+		
+		<li class="bnk"><a href="JavaScript:goPageList('2')" onfocus="blur();">2</a></li>
+
+		<li class="bnk"><img src="../images/common/bbs/ver_bar.gif" /></li>
+
+		
+		<li class="bnk"><a href="JavaScript:goPageList('3')" onfocus="blur();">3</a></li>
+
+		<li class="bnk"><img src="../images/common/bbs/ver_bar.gif" /></li>
+
+		
+		<li class="bnk"><a href="JavaScript:goPageList('4')" onfocus="blur();">4</a></li>
+
+		<li class="bnk"><img src="../images/common/bbs/ver_bar.gif" /></li>
+
+		<li class="bnk"><strong class="sel">5</strong></li>
+
+		<li class="bnk"><img src="../images/common/bbs/bu_next01.gif" alt="다음" /></li>
+
+	</ul>
+</div>
+		
+	</div>
+</FORM>
+	<div id="sp25">&nbsp;</div>
+	<div id="site_info">&copy; 2009 Tomatocap Corporation. All Rights Reserved.</div>
+
+</div>
+
+</body>
+</html>

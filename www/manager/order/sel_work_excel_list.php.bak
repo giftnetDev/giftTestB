@@ -1,0 +1,353 @@
+<?session_start();?>
+<?
+# =============================================================================
+# File Name    : sel_work_list.php
+# Modlue       : 
+# Writer       : Park Chan Ho 
+# Create Date  : 2015-10-29
+# Modify Date  : 
+#	Copyright : Copyright @C&C Corp. All Rights Reserved.
+# =============================================================================
+
+#====================================================================
+# DB Include, DB Connection
+#====================================================================
+	require "../../_classes/com/db/DBUtil.php";
+
+	$conn = db_connection("w");
+
+#==============================================================================
+# Confirm right
+#==============================================================================
+
+	$con_order_type = "";
+
+
+	$menu_right = "WO002"; // 메뉴마다 셋팅 해 주어야 합니다
+
+
+#	$sPageRight_		= "Y";
+#	$sPageRight_R		= "Y";
+#	$sPageRight_I		= "Y";
+#	$sPageRight_U		= "Y";
+#	$sPageRight_D		= "Y";
+#	$sPageRight_F		= "Y";
+
+#====================================================================
+# common_header Check Session
+#====================================================================
+	require "../../_common/common_header.php"; 
+
+#=====================================================================
+# common function, login_function
+#=====================================================================
+	require "../../_common/config.php";
+	require "../../_classes/com/util/Util.php";
+	require "../../_classes/com/etc/etc.php";
+	require "../../_classes/biz/order/order.php";
+	require "../../_classes/biz/work/work.php";
+	
+	if ($s_adm_cp_type == "구매" || $s_adm_cp_type == "판매공급" ) { 
+		$cp_type2 = $s_adm_com_code;
+	}
+
+	if ($s_adm_cp_type == "판매") { 
+		$cp_type = $s_adm_com_code;
+	}
+
+#====================================================================
+# Request Parameter
+#====================================================================
+
+	if ($start_date == "") {
+		$start_date = date("Y-m-d",strtotime("-1 month"));
+	} else {
+		$start_date = trim($start_date);
+	}
+
+	if ($end_date == "") {
+		$end_date = date("Y-m-d",strtotime("5 day"));
+	} else {
+		$end_date = trim($end_date);
+	}
+
+	$work_date = date("Y-m-d",strtotime("1 day"));
+
+	$day_1_plus = date("Y-m-d",strtotime("1 day"));
+	$day_0 = date("Y-m-d",strtotime("0 month"));
+	$day_1 = date("Y-m-d",strtotime("-1 day"));
+	$day_7 = date("Y-m-d",strtotime("-7 day"));
+	$day_31 = date("Y-m-d",strtotime("-1 month"));
+
+	#List Parameter
+	$nPage			= trim($nPage);
+	$nPageSize	= trim($nPageSize);
+
+	$search_field		= trim($search_field);
+	$search_str			= trim($search_str);
+	
+	$del_tf = "N";
+#============================================================
+# Page process
+#============================================================
+
+	if ($nPage <> "") {
+		$nPage = (int)($nPage);
+	} else {
+		$nPage = 1;
+	}
+
+	if ($nPageSize <> "") {
+		$nPageSize = (int)($nPageSize);
+	} else {
+		$nPageSize = 2000;
+	}
+
+	$nPageBlock	= 10;
+	
+#	echo $start_date;
+#	echo $end_date;
+
+#===============================================================
+# Get Search list count
+#===============================================================
+
+	$nPage = 1; 
+	$nPageSize = 100000;
+
+	$arr_rs = listWorkOrder($conn, $order_type, $start_date, $end_date, $order_state, $cp_no, "Y", "N", $search_field, $search_str, $order_field, $order_str, $nPage, $nPageSize);
+
+	require_once "../../_PHPExcel/Classes/PHPExcel.php";
+
+	$objPHPExcel = new PHPExcel();
+
+	$objPHPExcel->setActiveSheetIndex(0)
+				->setCellValue("A1", iconv("EUC-KR", "UTF-8", "순번"))
+				->setCellValue("B1", iconv("EUC-KR", "UTF-8", "주문일"))
+				->setCellValue("C1", iconv("EUC-KR", "UTF-8", "출고예정일"))
+				->setCellValue("D1", iconv("EUC-KR", "UTF-8", "주문업체"))
+				->setCellValue("E1", iconv("EUC-KR", "UTF-8", "수령자"))
+				->setCellValue("F1", iconv("EUC-KR", "UTF-8", "상품명"))
+				->setCellValue("G1", iconv("EUC-KR", "UTF-8", "주문/작업수량"))
+				->setCellValue("H1", iconv("EUC-KR", "UTF-8", "작업내역/상태"))
+				->setCellValue("I1", iconv("EUC-KR", "UTF-8", "배송방식"))
+				->setCellValue("J1", iconv("EUC-KR", "UTF-8", "택배사"))
+				->setCellValue("K1", iconv("EUC-KR", "UTF-8", "송장수"))
+				->setCellValue("L1", iconv("EUC-KR", "UTF-8", "작업메모"))
+				->setCellValue("M1", iconv("EUC-KR", "UTF-8", "재고"))
+				->setCellValue("N1", iconv("EUC-KR", "UTF-8", "영업담당"));
+
+	if (sizeof($arr_rs) > 0) {
+		for ($j = 0 ; $j < sizeof($arr_rs); $j++) {
+							
+			$RESERVE_NO					      = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["RESERVE_NO"])));
+			$ORDER_GOODS_NO				      = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["ORDER_GOODS_NO"])));
+			$ORDER_DATE						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["ORDER_DATE"])));
+			$OPT_OUTSTOCK_DATE				  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["OPT_OUTSTOCK_DATE"])));
+			$CP_NO					 		  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["CP_NO"])));
+			$O_MEM_NM						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["O_MEM_NM"])));
+			$R_MEM_NM						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["R_MEM_NM"])));
+			$GOODS_NAME						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["GOODS_NAME"])));
+			$OPT_MANAGER_NO					  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["OPT_MANAGER_NO"])));
+			$OPT_MEMO						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["OPT_MEMO"])));
+			$WORK_ORDER						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["WORK_ORDER"])));
+			$WORK_DATE						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["WORK_DATE"])));
+			$BULK_TF	  					  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["BULK_TF"])));
+			$GOODS_NO						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["GOODS_NO"])));
+			$DELIVERY_TYPE					  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["DELIVERY_TYPE"])));
+			$DELIVERY_CP					  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["DELIVERY_CP"])));
+
+			if ($WORK_ORDER == 100000) $WORK_ORDER = "";
+			if ($WORK_DATE == '헤') $WORK_DATE = "";
+
+			$QTY							  = getRefundAbleQty($conn, $RESERVE_NO, $ORDER_GOODS_NO); //trim($arr_rs[$j]["QTY"]);
+			$WORK_QTY						  = iconv("EUC-KR", "UTF-8", SetStringFromDB(trim($arr_rs[$j]["WORK_QTY"]))));
+			
+			// 재고 파악
+			//echo $ORDER_GOODS_NO;
+			//echo $GOODS_NO;
+			
+			$stock_flag = checkStock($conn, $GOODS_NO, $QTY);
+
+			$k = $j+2;
+
+			if ($temp_date <> $WORK_DATE) {
+
+				//style="text-align:left;padding-left:10px;background: #DEDEDE;vertical-align: middle;"
+
+				if ($WORK_DATE) {
+					$objPHPExcel->setActiveSheetIndex(0)
+							->setCellValue("A$k", "작업일 : ".left($WORK_DATE,10));
+				} else { 
+					$objPHPExcel->setActiveSheetIndex(0)
+							->setCellValue("A$k", "미지정 주문 리스트");
+				}
+			}
+
+			$option_str	= "";
+			if ($WORK_DATE) { 
+				$arr_work = selectWork($conn, $ORDER_GOODS_NO);
+				
+				//초기화
+				$case_work_no			= "";
+				$case_flag				= "";
+				$wrap_work_no			= "";
+				$wrap_flag				= "";
+				$sticker_work_no		= "";
+				$sticker_flag			= "";
+				$out_work_no			= "";
+				$out_flag				= "";
+				$out_sticker_work_no	= "";
+				$out_sticker_flag		= "";
+
+				if (sizeof($arr_work) > 0) {
+					for ($k = 0 ; $k < sizeof($arr_work); $k++) {
+						
+						$RS_WORK_NO			= trim($arr_work[$k]["WORK_NO"]);
+						$RS_WORK_TYPE		= trim($arr_work[$k]["WORK_TYPE"]);
+						$RS_WORK_FLAG		= trim($arr_work[$k]["WORK_FLAG"]);
+						$RS_CONFIRM_ADM		= trim($arr_work[$k]["CONFIRM_ADM"]);
+
+						if (trim($RS_WORK_TYPE) == "INCASE") {
+							$case_work_no	= $RS_WORK_NO;
+							$case_flag		= $RS_WORK_FLAG;
+						}
+
+						if (trim($RS_WORK_TYPE) == "WRAP") {
+							$wrap_work_no	= $RS_WORK_NO;
+							$wrap_flag		= $RS_WORK_FLAG;
+						}
+
+						if (trim($RS_WORK_TYPE) == "STICKER") {
+							$sticker_work_no	= $RS_WORK_NO;
+							$sticker_flag		= $RS_WORK_FLAG;
+						}
+
+						if (trim($RS_WORK_TYPE) == "OUTCASE") {
+							$out_work_no	= $RS_WORK_NO;
+							$out_flag		= $RS_WORK_FLAG;
+						}
+
+						if (trim($RS_WORK_TYPE) == "OUTSTICKER") {
+							$out_sticker_work_no	= $RS_WORK_NO;
+							$out_sticker_flag		= $RS_WORK_FLAG;
+						}
+
+					}
+				}
+
+				if ($case_work_no) {
+					if ($case_flag == "Y") {
+						$option_str .= "인박스 : <b><font color='blue'>Y</font></b><br>";
+					} else {
+						$option_str .= "인박스 : <b><font color='red'>N</font></b><br>";
+					}
+				}
+
+				if ($wrap_work_no) {
+					if ($wrap_flag == "Y") {
+						$option_str .= "포장지 : <b><font color='blue'>Y</font></b><br>";
+					} else {
+						$option_str .= "포장지 : <b><font color='red'>N</font></b><br>";
+					}
+				}
+
+				if ($sticker_work_no) {
+					if ($sticker_flag == "Y") {
+						$option_str .= "스티커 : <b><font color='blue'>Y</font></b><br>";
+					} else {
+						$option_str .= "스티커 : <b><font color='red'>N</font></b><br>";
+					}
+				}
+
+				if ($out_work_no) {
+					if ($out_flag == "Y") {
+						$option_str .= "아웃박스 : <b><font color='blue'>Y</font></b><br>";
+					} else {
+						$option_str .= "아웃박스 : <b><font color='red'>N</font></b><br>";
+					}
+				}
+
+				if ($out_sticker_work_no) {
+					if ($out_sticker_flag == "Y") {
+						$option_str .= "아웃박스스티커 : <b><font color='blue'>Y</font></b><br>";
+					} else {
+						$option_str .= "아웃박스스티커 : <b><font color='red'>N</font></b><br>";
+					}
+				}
+
+			} else {
+				$rs_order_goods = selectOrderGoods($conn, $ORDER_GOODS_NO);
+				$rs_goods_no			= trim($rs_order_goods[0]["GOODS_NO"]);
+				$rs_opt_wrap_no			= trim($rs_order_goods[0]["OPT_WRAP_NO"]);
+				$rs_opt_sticker_no		= trim($rs_order_goods[0]["OPT_STICKER_NO"]);
+				$rs_opt_sticker_ready	= trim($rs_order_goods[0]["OPT_STICKER_READY"]);
+				$rs_opt_outbox_tf		= trim($rs_order_goods[0]["OPT_OUTBOX_TF"]);
+				$rs_opt_sticker_msg		= trim($rs_order_goods[0]["OPT_STICKER_MSG"]);
+				$rs_opt_print_msg		= trim($rs_order_goods[0]["OPT_PRINT_MSG"]);
+
+				$sticker_ready = ($rs_opt_sticker_ready == "Y" ? "(스티커준비:O)" : "(스티커준비:X)");
+				$option_str .= ($rs_opt_sticker_no <> "0" ? $sticker_ready."<b>스티커</b> : ".getGoodsName($conn, $rs_opt_sticker_no)." " : "");
+				$option_str .= ($rs_opt_outbox_tf == "Y" ? "<b>아웃박스스티커</b> : 있음 <br/>" : "" );
+				$option_str .= ($rs_opt_wrap_no <> "0" ? "<b>포장지</b> : ".getGoodsName($conn, $rs_opt_wrap_no). " " : "");
+				$option_str .= ($rs_opt_sticker_msg <> "" ? "<b>스티커메세지</b> : ".$rs_opt_sticker_msg. " " : "");
+				$option_str .= ($rs_opt_print_msg <> "" ? "<b>인쇄메세지</b> : ".$rs_opt_print_msg. " " : "");
+
+			}
+
+			$total_cnt_yes = 0;
+			$arr_rs_delivery = cntOrderGoodsDelivery($conn, $RESERVE_NO, $ORDER_GOODS_NO);
+			
+			for($k = 0; $k < sizeof($arr_rs_delivery); $k ++)
+			{
+				$DELIVERY_CP				= trim($arr_rs_delivery[$k]["DELIVERY_CP"]);
+				$TOTAL						= trim($arr_rs_delivery[$k]["TOTAL"]);
+				$CNT_YES					= trim($arr_rs_delivery[$k]["CNT_YES"]);
+				$CNT_NO						= trim($arr_rs_delivery[$k]["CNT_NO"]);
+
+				$total_cnt_yes += $CNT_YES;
+			}
+			$total_cnt_yes .= " 장";
+
+			$objPHPExcel->setActiveSheetIndex(0)
+							->setCellValue("A$k", $WORK_ORDER ?  $j+1 : "")		 // 순번
+							->setCellValue("B$k", left($ORDER_DATE,10))			 // 주문일
+							->setCellValue("C$k", $OPT_OUTSTOCK_DATE)			 // 출고예정일
+							->setCellValue("D$k", getCompanyName($conn, $CP_NO)) // 주문업체
+							->setCellValue("E$k", $O_MEM_NM)					 // 수령자
+							->setCellValue("F$k", $GOODS_NAME)					 // 상품명
+							->setCellValue("G$k", ($WORK_DATE ? number_format($QTY)."/".number_format($WORK_QTY) : number_format($QTY))) // 주문/작업 수량
+							->setCellValue("H$k", $option_str)					 // 작업내역 / 상태
+							->setCellValue("I$k", getDcodeName($conn, "DELIVERY_TYPE", $DELIVERY_TYPE)) //배송방식
+							->setCellValue("J$k", getDcodeName($conn, "DELIVERY_CP", $DELIVERY_CP))		// 택배사
+							->setCellValue("K$k", $total_cnt_yes)				 // 송장수
+							->setCellValue("L$k", $OPT_MEMO)					 // 작업메모
+							->setCellValue("M$k", ($stock_flag ? "있음" : "없음"))  // 재고
+							->setCellValue("N$k", getAdminName($conn,$OPT_MANAGER_NO));  // 영업담당;
+
+		}
+	}
+
+	// Rename sheet
+	$objPHPExcel->getActiveSheet()->setTitle('Sheet1');
+
+	// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+	$objPHPExcel->setActiveSheetIndex(0);
+
+	//$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(100);
+
+	// 파일의 저장형식이 utf-8일 경우 한글파일 이름은 깨지므로 euc-kr로 변환해준다.
+	//$filename = iconv("UTF-8", "EUC-KR", "MRO -> 통합주문 변환 -".date("Ymd",strtotime("0 month")));
+	$filename = "작업지시서 - ".date("Ymd",strtotime("0 month"));
+
+	// Redirect output to a client’s web browser (Excel5)
+	header('Content-Type: application/vnd.ms-excel');
+	header("Content-Disposition: attachment;filename=".$filename.".xls");
+	header('Cache-Control: max-age=0');
+ 
+	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+	$objWriter->save('php://output');
+
+	mysql_close($conn);
+	exit;
+?>

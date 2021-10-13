@@ -1,0 +1,12 @@
+PHP_FLAG register_globals ON
+php_value allow_url_fopen On
+php_value max_input_vars 20000
+php_value post_max_size 5M
+php_value upload_max_filesize 5M
+php_value memory_limit 128M
+php_value max_execution_time 300
+php_value max_input_time 300
+php_value session.gc_maxlifetime 1200
+php_value session.cookie_lifetime 46800
+php_value upload_max_filesize 100M
+php_value post_max_size 100M

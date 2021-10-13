@@ -1,0 +1,40 @@
+/*popup*/
+#pop_tit { float: left; width: 600px; }
+.slogo { float: left; padding-top: 10px; padding-left: 21px; }
+.title { float: right; text-align: right; padding-top: 22px; padding-right: 14px; color: #000000; font-size: 14px; font-weight: bold; }
+.add_box { float: left; clear: both; background: transparent url(../images/pop_bar.gif) no-repeat; width: 600px; height: 35px; margin-top: 27px; padding-top: 6px; padding-left: 78px; word-spacing: 5px; }
+.add_ex { float: left; clear: both; width: 600px; text-align: center; color: #c74d4d; padding-top: 9px; }
+.pop_copy { float: left; clear: both; border-top:1px solid #e9e9e9; width: 600px; text-align: center; border-bottom:1px solid #e9e9e9; padding: 9px 0 7px 0; }
+
+/* 주소록 테이블 */
+.pop_address { float: left; clear: both; width: 566px; margin-top: 20px; margin-left: 17px; color: #666666; }
+.pop_address tbody tr td.top_fst{ border-top:1px solid #d1d1d1; padding:20px 0 3px 0; text-align:center; color:#d59019; font-weight: bold; }
+.pop_address tbody tr td.top_end{ border-top:1px solid #d1d1d1; padding:20px 0 3px 10px; text-align:left; }
+.pop_address tbody tr td.fst { padding:6px 0 3px 0; text-align:center; color:#d59019; font-weight: bold; }
+.pop_address tbody tr td.end { padding:6px 0 3px 10px; text-align:left; }
+.pop_address tfoot tr td.fst{ border-bottom:1px solid #d1d1d1; padding:6px 0 20px 0; text-align:center; color:#d59019; font-weight: bold; }
+.pop_address tfoot tr td.end{ border-bottom:1px solid #d1d1d1; padding:6px 0 20px 10px; text-align:left; }
+.btn_close { float: left; clear: both; margin-top: 12px; text-align: right; width:566px;}
+
+
+#bbsList { float: left; clear: both; width: 574px; margin-left: 15px; display: inline; }
+	#bbsList table{ border-collapse: collapse; background-color: transparent;}
+	#bbsList thead th{ height:24px; background-color:#999999; color: #ffffff; }
+	#bbsList tbody tr td{ border-bottom:1px solid #eaeaea; padding:6px 0 5px 0; text-align:center; }
+	#bbsList tfoot tr td{ height:11px; background:url(../images/common/bbs/tfoot_bg.gif) left bottom repeat-x; }
+	#bbsList .lpd10 {text-align:left; padding-left:10px; }
+	#bbsList .lpd20 {text-align:left; padding-left:20px; }
+	#bbsList .font {font-family: verdana; font-size: 10px;}
+	.btn_write { float: right; padding-top: 10px; padding-right: 5px; }
+
+
+/*bbs Write*/
+#bbsWrite { float: left; clear: both;  width:574px; margin-left: 15px; display: inline; }
+	#bbsWrite table{ border-collapse: collapse; background-color: transparent;}
+	#bbsWrite thead td{ height:28px; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsWrite tbody tr td{ height:28px; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsWrite tbody tr td.subject{ border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; padding: 5px 0 17px 0; }
+	#bbsWrite tfoot tr td{ height:11px; background:url(../images/common/bbs/tfoot_bg.gif) left bottom repeat-x; }
+	.lpd10 {text-align:left; padding-left:10px; }
+	.lpd20 {text-align:left; padding-left:20px; }
+	.btn_list { float: left; width:574px; text-align:center; padding-top: 20px; word-spacing: 5px; }

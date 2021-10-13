@@ -1,0 +1,15 @@
+@charset "euc-kr";
+
+* { margin: 0; padding: 0; font-family: Dotum, "µ¸¿ò"; }
+html, body { width: 100%; font-size: 12px; margin: 0 auto; padding: 0; color: #727272; }
+
+img { border: 0; }
+a { text-decoration: none; color: #474747; }
+a:hover { text-decoration: underline; }
+table { border-collapse: collapse; font-size: 12px; font-family: "µ¸¿ò"; table-layout: fixed; }
+ul, li { list-style-type:none; }
+select { font-size: 12px; font-family: Dotum; color: #727272; } 
+
+input.txt { color: #666666; }
+input.checkbox { vertical-align: -2px; }
+input.radio { vertical-align: -2px; }

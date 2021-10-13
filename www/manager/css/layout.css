@@ -1,0 +1,155 @@
+body, #wrapper, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td { margin : 0; padding : 0; }
+h1, h2, h3, h4, h5, h6 { font-size : 100%; }
+ol, ul { list-style : none; }
+address, caption, cite, code, dfn, em, strong, var { font-style : normal; font-weight : normal; }
+table { border-collapse : collapse; border-spacing : 0; }
+fieldset, img { border : 0; }
+caption { text-align : left; }
+q:before, q:after { content : ''; }
+hr, legend {display:none;}
+img, fieldset {border:0 none;}
+img, input, select, textarea {vertical-align: middle;}
+
+body, table, th, td { font-size:12px; color:#888888; font-family:Dotum,DotumChe,verdana; }
+
+/*link color style*/
+a:link { text-decoration: none; color: #888888; }
+a:visited { text-decoration: none; color: #888888; }
+a:hover { text-decoration:underline; color:#888888; }
+
+/*height space*/
+.sp1 { height: 1px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp5 { height: 5px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp10 { height: 10px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp20 { height: 20px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp25 { height: 25px; width:1px; font-size: 0; line-height: 0; clear:both; }
+
+table { border-spacing: 0; }
+img { border:0px; }
+form { padding:0px; margin:0px;}
+select { font-size:12px; font-family:Dotum,DotumChe,verdana; color: #959595; padding-top: 2px; padding-left: 2px;}
+input.box01 { height: 16px; border:1px solid #eaeaea; background-color:#fff; font-size:12px; font-family:Dotum,DotumChe,verdana; color: #888888; padding-top: 2px; padding-left: 5px;}
+input.box02 { height: 18px; border:1px solid #cacca2; background-color:#fff; font-size:12px; font-family:Dotum,DotumChe,verdana; color: #888888; padding-top: 2px; padding-left: 5px;}
+input.box03 { height: 18px; border:1px solid #7f9db9; background-color:#fff; font-size:12px; font-family:Dotum,DotumChe,verdana; color: #888888; padding-top: 2px; padding-left: 5px;}
+textarea.box01 { border:1px solid #eaeaea; background-color:#fff; font-size:12px; font-family:Dotum,DotumChe,verdana; line-height:18px; padding: 5px;  color:#888888; }
+
+body#bg { background: transparent url(../images/bg.gif) repeat-x; width: 100%; }
+body#login { background-color:#fff; width: 100%; }
+body#pop { background: transparent url(../images/pop_bg.gif) repeat-x; width: 600px; height: 600px; }
+.png24 {tmp:expression(setPng24(this)); }
+
+#wrap { width: 995px; margin: 0 auto; }
+#brand { position: relative; height: 79px; }
+#brand p { position: absolute; left: 721px; top: 33px; background: transparent url(../images/common/bu/bu_04.gif) no-repeat; padding-left: 20px; }
+#brand ul { position: absolute; left: 812px; top: 31px; height: 20px; }
+#brand li { display: inline; padding: 0; }
+h1 { position: absolute; left: 75px; top: 18px; }
+
+/* 레프트 메뉴 */
+#left_menu { float: left; background: transparent url(../images/left_bg.gif) left top repeat-y; width: 206px; }
+.leftmenutree { background: transparent url(../images/left_top.gif) no-repeat;  padding: 30px 0 180px 18px; }
+.leftmenutree li{ padding-bottom: 8px; font-weight: bold; }
+.leftmenutree a { text-decoration:none; color: #888888; background: transparent url(../images/menu_bar_off.gif) no-repeat;  padding: 7px 0 7px 14px; display: block; }
+.leftmenutree a.select { text-decoration:none; color: #ffffff; background: transparent url(../images/menu_bar.gif) no-repeat;  padding: 7px 0 7px 14px; display: block; }
+.leftmenutree a:hover { text-decoration:none; color: #ffffff; background: transparent url(../images/menu_bar.gif) no-repeat;  padding: 7px 0 7px 14px; display: block; }
+
+.subtree li{ background: transparent url(../images/dot.gif) left bottom repeat-x; width: 166px; padding-left: 4px; font-weight: normal; }
+.subtree a { text-decoration: none; color: #888888; padding: 6px 0 0 14px; }
+.subtree a.select { text-decoration:none; color: #fc8302; background: transparent url(../images/menu_empty.gif) no-repeat; padding: 6px 0 0 14px; font-weight: bold; }
+.subtree a:hover { text-decoration:none; color: #fc8302; background: transparent url(../images/menu_empty.gif) no-repeat; padding: 6px 0 0 14px; }
+
+/* 레프트 바로가기 */
+.link { float: left; padding-left: 9px; }
+.link1 { position: relative; float: left; background: url(../images/menu01.gif) no-repeat ; width: 188px; height: 35px; }
+.link1 li { position: absolute; top: 11px; left: 148px; }
+.link2 { position: relative; float: left; background: url(../images/menu02.gif) no-repeat ; width: 188px; height: 35px; }
+.link2 li { position: absolute; top: 11px; left: 148px; }
+.link3 { position: relative; float: left; background: url(../images/menu03.gif) no-repeat ; width: 188px; height: 35px; }
+.link3 li { position: absolute; top: 11px; left: 148px; }
+.left_munu_last { float: left; background: transparent url(../images/left_bot.gif) no-repeat left bottom; width: 206px; height: 114px; }
+
+/* 컨텐츠 */
+#contents { float: left; width: 789px; }
+#contents p { float: right; background: transparent url(../images/common/bu/bu_03.gif) 0 1px no-repeat; padding-left: 10px; margin-top: 22px; margin-bottom: 13px; margin-right: 8px; display: inline; }
+#tit01 { float: left; margin-left: 15px; margin-bottom: 6px; width: 766px; display: inline; }
+h2 { float: left; background: transparent url(../images/common/bu/bu_01.gif) no-repeat; font-size:12pt; padding-left: 20px; margin-left: 9px; display: inline; }
+#sch { float: right; text-align: right; }
+#sch li { display: inline; padding-right: 0; }
+
+#pop_contents { float: left; width: 700px; }
+#pop_contents p { float: right; background: transparent url(../images/common/bu/bu_03.gif) 0 1px no-repeat; padding-left: 10px; margin-top: 22px; margin-bottom: 13px; margin-right: 80px; display: inline; }
+
+/*bottom*/
+#site_info { float: left; clear: both; width: 995px; text-align: center; border-top: 1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; padding-top: 8px; padding-bottom: 8px; }
+
+/*로그인 페이지*/
+#login_box { position: relative; background: transparent url(../images/loginbox.gif) no-repeat; width: 765px; height: 181px; margin: 0 auto; top: 250px; }
+#login_box dl { position: absolute; top: 95px; left: 75px;  }
+#login_box dt { background: transparent url(../images/common/bu/bu_05.png) 20px 3px no-repeat; color: #ffffff; font-weight: bold; padding-left: 28px; display: inline; }
+#login_box dd { display: inline; padding-left: 5px; }
+.copy { position: absolute; top: 136px; left: 200px; }
+
+
+/*예약 하기*/
+/* 예약신청 */
+
+.info dl { float: left; background: url(../images/reservation/bg.gif) repeat-y; width: 675px; border-top: 1px solid #dedede; border-bottom: 1px solid #fff;}
+.info dl.end { border-bottom: 1px solid #dedede;}
+.info dt { float: left; width: 124px; padding: 20px 0 0 16px; }
+.info dd { padding: 20px 0 20px 20px; margin-left: 140px; }
+
+.info_en dl { float: left; background: url(../images/reservation/bg_en.gif) repeat-y; width: 675px; border-top: 1px solid #dedede; border-bottom: 1px solid #fff;}
+.info_en dl.end { border-bottom: 1px solid #dedede;}
+.info_en dt { float: left; width: 124px; padding: 20px 0 0 16px; }
+.info_en dd { width: 495px; padding: 20px 0 0 20px; margin-left: 150px; line-height: 19px; }
+.info_en dd.end { width: 495px; padding: 20px 0 20px 20px; margin-left: 150px; line-height: 19px;}
+
+.bg_box { background-color: #ebebeb; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5; line-height: 24px; padding: 10px 0 7px 24px; margin: 0 0 15px 0; color: #636466; }
+.font11 { font-size: 11px; }
+.bold { font-weight: bold; }
+.txt01 { font-size: 11px; color: #8a8b8b; line-height: 20px; padding-left: 25px;}
+.calendar_box { float: left; background: url(../images/reservation/calendar_box_bg.gif) no-repeat; width: 448px; height: 254px; }
+.calendar_ym { float: left; width: 215px; margin: 5px 0 0 6px; display: inline; }
+
+.cld_m01 {float: left; background-color: #cec6ba; width: 215px; padding: 7px 0 7px 0; color: #fff; font-weight: bold; text-align: center;}
+
+.cld_m01 a { top: 8px; left: 8px; }
+.cld_m02 {float: left; background-color: #cec6ba; width: 215px; padding: 7px 0 7px 0; color: #fff; font-weight: bold; text-align: center;}
+.cld_m02 a { top: 8px; left: 199px; }
+
+.chk { float: left; width: 100%; border-top: 1px solid #dedede; margin-top: 10px;}
+.chk dl { float: left; padding: 10px 0 0 26px; }
+.chk dt { float: left; width: 47px; margin-top: 8px; }
+.chk dd { float: left; width: 125px; }
+.chk span { float: left; margin-top: 12px; }
+
+.pay { float: right; background: url(../images/reservation/calendar_box02_bg.gif) no-repeat; width: 222px; height: 254px;}
+.pay dt { float: left; background: url(../images/bu/bu_01.gif) 0 6px no-repeat; font-weight: bold; color: #676666; width: 82px; height: 50px; padding: 3px 0 0 10px; }
+.pay dd { float: left; font-size: 11px; width: 100px; height: 22px; }
+.pay dl.sel01 { float: left; background: url(../images/reservation/dot.gif) left bottom repeat-x; padding: 0 0 4px 0; margin: 15px 0 0 12px; width: 197px; display: inline; }
+.pay dl.sel02 { float: left; border-bottom: 1px solid #c9c9c9; padding: 0 0 6px 0; margin: 15px 0 0 12px; width: 197px; display: inline;}
+.pay dl.sel02 dt { height: 25px; padding-top: 3px;}
+.pay dl.sel03 { float: left; margin: 15px 0 0 12px; width: 197px; display: inline;}
+.pay dl.sel03 dt { height: 20px; }
+.pay dl.sel03 dd { padding-top: 3px; }
+
+.sp1 { height: 1px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp2 { height: 2px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp3 { height: 3px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp4 { height: 4px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp5 { height: 5px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp8 { height: 8px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp10 { height: 10px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp13 { height: 13px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp15 { height: 15px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp20 { height: 20px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp25 { height: 25px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp30 { height: 30px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp35 { height: 35px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp40 { height: 40px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp45 { height: 45px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp50 { height: 50px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp60 { height: 60px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp70 { height: 70px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp80 { height: 80px; width:1px; font-size: 0; line-height: 0; clear:both; }
+.sp85 { height: 85px; width:1px; font-size: 0; line-height: 0; clear:both; }

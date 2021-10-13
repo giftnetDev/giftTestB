@@ -1,0 +1,52 @@
+BODY,TD,DIV,form,center,option,pre,P,blockquote,br {font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.5; color:#666666;}
+.red { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.2; color:#990000;}
+.cell { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.2; color:#666666;}
+.no { font-family:±¼¸²; font-size:11px; text-decoration:none; line-height:1.2; color:#666666;}
+.gray20 { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.5; color:#666666;}
+
+.green { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.5; color:#0B504E;}
+
+.blue20 { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.5; color:#0B509F;}
+
+.brown { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.5; color:#B87126;}
+
+.input {font-family:"±¼¸²"; font-size:12px; height:19px; color:#666666; border:#B3B2B3; border-style:inset;
+		border-top-width:1px; border-right-width:1px; border-bottom-width: 1px; border-left-width: 1px}
+.sv {font-family:±¼¸²; font-size:11px; text-decoration:none; line-height:1.2; color:#666666;}
+
+.white { font-family:±¼¸²; font-size:9pt; text-decoration:none; line-height:1.5; color:#ffffff;}
+
+A {text-decoration:none;color:#666666;}
+A:hover {text-decoration:none; color:#257DAD;}
+A:visited {text-decoration:none;}
+
+A1 {text-decoration:none;color:#993333;}
+A1:hover {text-decoration:none; color:#cc6666;}
+A1:visited {text-decoration:none;}  
+
+A.black4 { font-family:±¼¸²; font-size:9pt; text-decoration:none;color:#3D3D3D;}
+A.black4:hover {text-decoration:none}
+
+a.blue:link { color: #599AFC; text-decoration: underline; line-height:1.5;}
+a.blue:visited { color: #599AFC; text-decoration: underline; line-height:1.5;}
+a.blue:hover { color: #599AFC; text-decoration: underline; line-height:1.5;}
+
+a.gray20:link { color: #666666; text-decoration: underline; line-height:1.2;}
+a.gray20:visited { color: #666666; text-decoration: underline; line-height:1.2;}
+a.gray20:hover { color: #257DAD; text-decoration: underline; line-height:1.2;}
+
+a.store:link { color: #666666; text-decoration: underline; line-height:1.2;}
+a.store:visited { color: #666666; text-decoration: underline; line-height:1.2;}
+a.store:hover { color: #257DAD; text-decoration: underline; line-height:1.2;}
+
+a.no:link { color: #666666; font-size:11px; text-decoration: none; line-height:1.2;}
+a.no:visited { color: #666666; font-size:11px; text-decoration: none; line-height:1.2;}
+a.no:hover { color: #257DAD; font-size:11px; text-decoration: none; line-height:1.2;}
+
+a.s1:link { color: #444444; text-decoration: none; line-height:1.5;}
+a.s1:visited { color: #444444; text-decoration: none; line-height:1.5;}
+a.s1:hover { color: #444444; text-decoration: none; line-height:1.5;}
+
+a.s2:link { color: #6D6D6D; text-decoration: none; line-height:1.5;}
+a.s2:visited { color: #6D6D6D; text-decoration: none; line-height:1.5;}
+a.s2:hover { color: #6D6D6D; text-decoration: none; line-height:1.5;}

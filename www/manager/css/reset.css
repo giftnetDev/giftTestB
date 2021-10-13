@@ -1,0 +1,707 @@
+@charset "euc-kr";
+@import url('../../lib/css/pagination.css');
+
+/* NotoSans */
+@font-face{font-family:noto; font-weight:100; src:url('../../lib/font/NotoSans-Light.eot'); src:local(※), url('../../lib/font/NotoSans-Light.woff') format('woff'), url('../../lib/font/NotoSans-Light.ttf') format('truetype')}
+@font-face{font-family:noto; font-weight:200; src:url('../../lib/font/NotoSans-DemiLight.eot'); src:local(※), url('../../lib/font/NotoSans-DemiLight.woff') format('woff'), url('../../lib/font/NotoSans-DemiLight.ttf') format('truetype')}
+@font-face{font-family:noto; font-weight:400; src:url('../../lib/font/NotoSans-Regular.eot'); src:local(※), url('../../lib/font/NotoSans-Regular.woff') format('woff'), url('../../lib/font/NotoSans-Regular.ttf') format('truetype')}
+@font-face{font-family:noto; font-weight:700; src:url('../../lib/font/NotoSans-Medium.eot'); src:local(※), url('../../lib/font/NotoSans-Medium.woff') format('woff'), url('../../lib/font/NotoSans-Medium.ttf') format('truetype')}
+@font-face{font-family:noto; font-weight:800; src:url('../../lib/font/NotoSans-Bold.eot'); src:local(※), url('../../lib/font/NotoSans-Bold.woff') format('woff'), url('../../lib/font/NotoSans-Bold.ttf') format('truetype')}
+
+/* style reset */
+* {margin:0; padding:0; outline:none; -webkit-text-size-adjust:none; -webkit-overflow-scrolling:touch; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box}
+
+html {width:100%; height:100%}
+body {width:100%; background:url('../../lib/images/bg_leftarea.jpg') repeat-y 0 0; color:#767676; word-break:keep-all; word-wrap:break-word; font-size:1.3rem}
+ul, ol, li {list-style:none}
+a {cursor:pointer; color:#767676; text-decoration:none}
+em, address, i {font-style:normal}
+caption {visibility:hidden; width:0; height:0; overflow:hidden; font-size:0}
+hr {display:none}
+select {border-radius:0; color:#767676; -webkit-appearance:none; -moz-appearance:none; appearance:none}
+select::-ms-expand {display:none}
+button {cursor:pointer; background:transparent; border:0; vertical-align:middle}
+pre {white-space:pre-line; word-break:break-all}
+img {border:0}
+input.txt {display:block; padding:0; background:#fff; border:0; border-radius:0; color:#767676}
+input.file {display:block; padding:0; background:#fff; border:0; border-radius:0; color:#767676}
+input.radio {vertical-align:middle}
+input.checkbox {vertical-align:middle}
+input::-ms-clear {display:none}
+input.txt::-webkit-input-placeholder {color:#767676; font-size:1.2rem; font-weight:100}
+input.txt:-moz-placeholder {color:#767676; font-size:1.2rem; font-weight:100}
+input.txt::-moz-placeholder {color:#767676; font-size:1.2rem; font-weight:100}
+input.txt:-ms-input-placeholder {color:#767676; font-size:1.2rem; font-weight:100}
+textarea {overflow-x:hidden; overflow-y:auto; resize:none; background:#fff; color:#767676}
+textarea::-webkit-input-placeholder {color:#767676; font-weight:100}
+textarea.txt:-moz-placeholder {color:#767676; font-weight:100}
+textarea.txt::-moz-placeholder {color:#767676; font-weight:100}
+textarea.txt:-ms-input-placeholder {color:#767676; font-weight:100}
+img, input, button, select, textarea {vertical-align:middle}
+fieldset {margin:0; padding:0; border:0; background:0}
+fieldset legend {visibility:hidden; font-size:0; line-height:0}
+table {border-collapse:collapse}
+.pull-left {float:left !important; clear:none !important}
+.pull-right {float:right !important; clear:none !important}
+.pull-none {float:none !important; width:auto !important; overflow:hidden}
+.hide {overflow:hidden; position:absolute; left:-1000%; top:0; width:0; height:0; font-size:0.1%; line-height:0.1%}
+.transparents-layer {position:fixed; left:0; top:0; z-index:100; width:100%; height:100%; background:#000; opacity:0.5; -ms-filter:alpha(opacity=50); filter:alpha(opacity=50)}
+.nocontents {width:100%; padding:5rem; text-align:center; font-size:1.6rem}
+.blocklink {display:block; width:100%}
+body, ul, li, ol, span, p, div, td, tr, button, input, em, dl, dt, dd, textarea, select, i, a, pre {font-family:noto, Dotum, Arial, sans-serif}
+
+.txt-orange {color:#ff9e19 !important}
+.txt-blue {color:#5f504e !important}
+.txt-black {color:#767676 !important}
+.txt-green-check {color:#00b479 !important}
+.txt-red {color:#ce3000}
+.mt20 {margin-top:2rem !important}
+.mt100 {margin-top:10.0rem !important}
+
+
+/* Slick Slider */
+.slick-slider {position:relative; display:block; height:100%; -moz-box-sizing:border-box; box-sizing:border-box; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.slick-list {position:relative; display:block; overflow:hidden; width:100%; height:100%; margin:0; padding:0}
+.slick-list.dragging {cursor:pointer}
+.slick-slider .slick-track,.slick-slider .slick-list {-webkit-transform:translate3d(0, 0, 0);-moz-transform:translate3d(0, 0, 0);-ms-transform:translate3d(0, 0, 0);-o-transform:translate3d(0, 0, 0);transform:translate3d(0, 0, 0)}
+.slick-track {position:relative; top:0; left:0; display:block; width:100%; height:100%}
+.slick-track:before,.slick-track:after {display:table; content:''}
+.slick-track:after {clear:both}
+.slick-loading .slick-track {visibility:hidden}
+.slick-slide {display:none;float:left; width:100%; height:100%;min-height:1px}
+[dir='rtl'] .slick-slide {float:right}
+.slick-slide img {display:block}
+.slick-slide.slick-loading img {display:none}
+.slick-slide.dragging img {pointer-events:none}
+.slick-initialized .slick-slide {display:block}
+.slick-loading .slick-slide {visibility:hidden}
+.slick-vertical .slick-slide {display:block; height:auto; border:1px solid transparent}
+.slick-arrow.slick-hidden {display:none}
+
+/* Datepicker */
+.ui-datepicker {display:none; width:280px; height:235px; overflow:hidden; padding:0; background:#fff; border-radius:0; box-shadow:2px 2px 2px 0 rgba(0,0,0,0.1), 0 -1px 2px 0 rgba(0,0,0,0.1)}
+.ui-datepicker .ui-icon {display:block; width:100%; height:100%; text-indent:-99999px; overflow:hidden; border-radius:3px}
+.ui-datepicker .ui-icon-circle-triangle-w {background:url('../../lib/images/icon_calendar_prev.png') no-repeat 50% 50%}
+.ui-datepicker .ui-icon-circle-triangle-e {background:url('../../lib/images/icon_calendar_next.png') no-repeat 50% 50%}
+.ui-datepicker .ui-datepicker-prev {position:absolute; top:10px; left:10px; width:20px; height:20px}
+.ui-datepicker .ui-datepicker-next {position:absolute; top:10px; right:10px; width:20px; height:20px}
+.ui-datepicker .ui-datepicker-title {margin:0; line-height:1.8em; text-align:center; font-size:13px; color:#383838}
+.ui-datepicker .ui-datepicker-title span {color:#404141}
+.ui-datepicker .ui-datepicker-title select {font-size:1em; margin:1px 0}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {display:inline-block;  height:20px; padding:0 10px; background:none; border:0; text-align:center; vertical-align:middle; line-height:20px; color:#fff}
+.ui-datepicker select.ui-datepicker-month option, .ui-datepicker select.ui-datepicker-year option {color:#666}
+.ui-datepicker select.ui-datepicker-year {width:60px}
+.ui-datepicker select.ui-datepicker-month {width:50px}
+.ui-datepicker table {width:98%; border-collapse:collapse; margin:7px auto 0}
+.ui-datepicker table th {padding:2px 0 6px 0; text-align:center; border:0; font-size:12px; color:#383838}
+.ui-datepicker table th span {font-size:12px; color:#666; font-weight:400}
+.ui-datepicker table td {padding:1px; text-align:center; font-size:12px}
+.ui-datepicker table td a {font-size:12px; font-weight:400}
+.ui-datepicker td a {display:block; width:100%; height:24px; text-align:center; color:#666; line-height:24px}
+.ui-datepicker td a:hover {background:#5f504e; text-decoration:none; color:#fff}
+.ui-datepicker td.ui-datepicker-today a {background:#fff; color:#ff9e19}
+.ui-datepicker td a.ui-state-active {background:#ff9e19; color:#fff}
+.ui-datepicker-row-break {clear:both; width:100%; font-size:0}
+.ui-datepicker.ui-widget {font-family:verdana; font-size:1.1em}
+.ui-datepicker.ui-widget .ui-widget {font-size:1em}
+.ui-datepicker.ui-widget input, .ui-datepicker.ui-widget select, .ui-datepicker.ui-widget textarea, .ui-datepicker.ui-widget button {font-family:Arial,sans-serif; font-size:1em}
+.ui-datepicker .ui-widget-content a {color:#222}
+.ui-datepicker .ui-widget-header {position:relative; width:100%; height:32px; padding:4px 0 0 0; margin:0; background:#5f504e; border-radius:0 !important; color:#fff !important; font-size:13px}
+.ui-datepicker .ui-widget-header .ui-datepicker-title {margin-top:0; font-size:13px; color:#fff !important; word-spacing:-1px}
+.ui-datepicker .ui-widget-header .ui-datepicker-title span {color:#fff !important; font-size:13px}
+
+/* layout */
+#wrap {width:100%; min-width:1280px; opacity:0}
+
+/* layout */
+#wrap {width:100%}
+.toparea {position:fixed; left:0; top:0; z-index:50; width:100%; min-width:1280px; height:7rem; background:#fff; box-shadow:0 2px 2px rgba(0,0,0,0.04)}
+.toparea .innerbox {height:100%}
+.toparea h1 {float:left; width:22rem; height:7rem; background:#675957}
+.toparea h1 a {display:block; width:100%; height:100%; background:url('../../lib/images/logo_w.png') no-repeat 50%; font-size:0; text-indent:-99999rem}
+.toparea ul {float:left; height:100%; padding:0 3rem}
+.toparea ul li {float:left; height:100%; margin-left:3.8rem; line-height:7rem}
+.toparea ul li a {display:block; width:100%; height:100%; padding:0 2rem; font-size:1.4rem; font-weight:700}
+.toparea ul li a:hover {color:#ff9e19}
+.toparea ul li.on a {border-bottom:4px solid #ff9e19; color:#ff9e19}
+.toparea .welcome {float:right; margin-top:1.9rem; margin-right:2rem}
+.toparea .welcome p {float:left; height:3.2rem; color:#999; font-size:1.5rem; color:#999; line-height:3.2rem}
+.toparea .welcome p strong {color:#ff9e19}
+.toparea .welcome .btnset {float:left; margin-left:2rem}
+.toparea .welcome .btnset button {height:3.2rem; margin:0 0 0 1rem; line-height:3.2rem}
+
+.midarea {clear:both; overflow:hidden; min-width:1280px}
+
+.leftarea {float:left; width:22rem; padding:13rem 3rem 10rem 3rem}
+.leftarea .bannerwrap {clear:both; margin-bottom:4rem}
+.leftarea .bannerwrap .banner {width:16rem; height:8rem; margin:0 auto; margin-top:1rem; background:#857777}
+.leftarea .bannerwrap .banner:first-child {margin-top:0}
+
+.side_menu{border-bottom:1px solid #999;}
+.side_menu li{border-top:1px solid #999;}
+.side_menu li li:first-child{border-top:none;}
+.side_menu li a{display:block; height:40px; line-height:40px; padding-left:30px; color:#fff;}
+.side_menu li.has > a{background-image:url('../../lib/images/bg_menu_arrow.png'); background-position:100% 16px; background-repeat:no-repeat;}
+.side_menu li li a{padding-left:40px; font-size:13px; background:#333 url('../../lib/images/bg_menu.gif') no-repeat 30px 19px; color:#999;}
+/*
+.side_menu li.sele > a{background-color:#f7f7f7;}
+.side_menu li li.sele a{padding-left:36px; color:#fff; background:url(../images/bg_menu_sele.gif) no-repeat 26px 19px; border-left:4px solid #f7f7f7;}
+*/
+.side_menu li.sele > a{font-weight:bold;}
+.side_menu li li.sele a{color:#fff;}
+
+.side_menu li ul{display:none;}
+.side_menu li.sele ul{display:block;}
+.side_menu > ul > li{position:relative;}
+.side_menu > ul > li .btn_link{display:inline; position:absolute; left:90px; top:13px; padding:0; background:none;  height:auto; line-height:0;}
+
+
+.contentsarea {float:none; overflow:hidden; padding:7rem 6rem 6rem; background:#fff}
+.contentsarea > div {margin-top:6rem}
+.contentsarea > div > h2 {margin:0 0 3rem 0}
+.contentsarea > div > h2 strong {font-size:2.4rem; color:#333}
+.contentsarea > div > h2 span {margin-left:1rem; font-size:1.3rem; color:#767676; font-weight:100}
+.contentsarea .topmenu {height:7.4rem; border-bottom:1px solid #f7f5f4}
+.contentsarea .topmenu ul {height:100%; padding:0 3rem; border-bottom:1px solid #f2f0ef}
+.contentsarea .topmenu ul li {float:left; height:100%; margin-left:5.8rem; line-height:7.4rem}
+.contentsarea .topmenu ul li a {display:block; width:100%; height:100%; font-size:1.4rem; font-weight:700}
+.contentsarea .topmenu ul li a:hover {color:#ff9e19}
+.contentsarea .topmenu ul li.on a {border-bottom:4px solid #ff9e19; color:#ff9e19}
+.contentsarea .contentsbox {padding:6rem}
+.contentsarea .contentsbox h3 {color:#333; font-size:1.6rem; font-weight:700}
+
+.contentsarea ul.pagenavi li {float:left; height:2rem; padding:0 0.8rem 0 1.4rem; background:url('../../lib/images/icon_pagenavi.png') no-repeat 0 55%; color:#767676; font-size:1.3rem; line-height:2rem; font-weight:100}
+.contentsarea ul.pagenavi li:first-child {padding-left:0; background:0}
+
+/* common */
+input[type="radio"] {position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+input[type="radio"] + label {display:inline-block; position:relative; padding-left:2rem; cursor:pointer; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; color:#767676; font-weight:100}
+input[type="radio"] + label:before {content:''; display:block; position:absolute; left:0; top:0; width:2.2rem; height:2.2rem; text-align:center; background:url('../../lib/images/bg_iradio_off.jpg') no-repeat 0 48%}
+input[type="radio"]:checked + label:before {background-image:url('../../lib/images/bg_iradio_on.jpg')}
+
+.inpbox {display:inline-block; z-index:1; overflow:hidden; position:relative; height:4.4rem; background:#fff; border:1px solid #e1e1e1; vertical-align:middle}
+.inpbox input.txt {display:block; width:100%; height:100%;  padding:0 1rem; color:rgba(118,118,118,0.8); font-weight:100}
+.inpbox input.txt1{display:block; width:150%; height:100%; 	padding:0 1rem; color:rgba(118,118,118,0.8); font-weight:100}
+.inpbox input.txt.txt-orange {font-weight:600}
+.inpbox input.txt:disabled {background:#e1e1e1}
+
+.optionbox {display:inline-block; z-index:1; overflow:hidden; position:relative; height:3.4rem; vertical-align:middle}
+.optionbox select {width:100%; height:100%; padding:0 2.5rem 0 1rem; border:1px solid #e1e1e1; background:url('../../lib/images/icon_selectarr.png') no-repeat 100% 50%; color:#767676; font-weight:200; font-size:1.2rem}
+.optionbox option {color:#767676; font-weight:200; font-size:1.2rem}
+
+.datebox {display:inline-block; z-index:1; width:15rem; height:3.2rem; border:1px solid #dfdfdf; border-radius:2px; vertical-align:middle}
+.datebox input.txt_date {display:block; width:100%; height:100%; padding:0 4rem 0 1rem; border:0; background:url('../../lib/images/icon_calendar_02.png') #fff no-repeat 100% 50%; font-size:1.2rem; color:#767676; cursor:pointer}
+p.datebox {display:block; width:100%}
+
+.filebox {position:relative; padding-right:155px}
+.filebox .filetxt {display:block; z-index:1; overflow:hidden; position:relative; height:44px; padding:0 20px; background:#fff; border:1px solid #dfdfdf; border-radius:22px; vertical-align:middle}
+.filebox .filetxt strong {display:inline-block; width:auto; height:44px; line-height:44px; color:#333; font-size:14px}
+.filebox .filetxt .btn-del {display:none; width:18px; height:18px; margin-left:10px; background:url('../../lib/images/icon_del_01.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.filebox .ipfile {position:absolute; top:0; right:0; width:140px; height:44px}
+.filebox .ipfile input {width:0; height:0; opacity:0}
+.filebox .ipfile label {display:inline-block; width:140px; height:44px; border:1px solid #dfdfdf; border-radius:22px; background:#eee; text-align:center; line-height:44px; font-size:14px; color:#333; cursor:pointer}
+
+.btncenter {clear:both; overflow:hidden; display:block; width:100%; text-align:center}
+.btncenter button {margin:0 0.5rem}
+.btnright {clear:both; overflow:hidden; display:block; width:100%; text-align:right}
+.btnright button {margin:0 0 0 0.5rem}
+.btnright button:first-child {margin-left:0}
+.btnjustify {clear:both; overflow:hidden; width:100%; position:relative; text-align:left}
+.btnjustify span {position:absolute; right:0; top:0}
+
+.btn-large {height:6rem; padding:0 3.5rem; line-height:6rem; border-radius:3px; font-weight:400; font-size:1.5rem}
+.btn-normal {height:4rem; padding:0 1.5rem; line-height:4rem; border-radius:2px; font-weight:200; font-size:1.3rem}
+
+.btn-black {display:inline-block; min-width:8rem; background:#333; vertical-align:middle; color:#fff}
+.btn-red {display:inline-block; min-width:8rem; height:4rem; padding:0 1.5rem; background:#ed1a3c; border-radius:2px; vertical-align:middle; line-height:4rem; color:#fff; font-size:1.3rem; font-weight:200}
+.btn-orange {display:inline-block; min-width:8rem; background:#ff9e19; vertical-align:middle; color:#fff}
+.btn-navy {display:inline-block; min-width:8rem; background:#5f504e; vertical-align:middle; color:#fff}
+.btn-white {display:inline-block; min-width:8rem; background:#fff; border:1px solid #eaeaea; vertical-align:middle; color:#767676}
+.btn-lightgray {display:inline-block; min-width:8rem; height:4rem; padding:0 1.5rem; background:#f7f7f7; border:1px solid #dfdfdf; border-radius:0; vertical-align:middle; line-height:4rem; color:#767676; font-size:1.3rem; font-weight:400}
+.btn-border-orange {display:inline-block; min-width:8rem; height:4rem; padding:0 1.5rem; background:#fff; border:1px solid #ff9e19; border-radius:0; vertical-align:middle; line-height:4rem; color:#ff9e19; font-size:1.3rem; font-weight:200}
+
+button em.download {display:inline-block; padding:0 2rem 0 0; background:url('../../lib/images/icon_download.png') no-repeat 100% 50%}
+
+.btn-listview {height:3rem}
+.btn-listview:after {content:""; display:block; clear:both; overflow:hidden}
+.btn-listview button {float:left; height:3rem; margin:0 0 0 0.9rem; padding:0 1.6rem; text-align:left; background-color:#fff; border:1px solid #e1e1e1; border-radius:2px; color:#999; font-size:1.3rem; font-weight:600}
+.btn-listview button:first-child {margin:0}
+.btn-listview button em {display:inline-block; height:2rem; padding-left:2rem; background-repeat:no-repeat; background-position:0 50%; line-height:2rem}
+.btn-listview button:hover, .btn-listview button.on {background-color:#ff9e19; border-color:#ff9e19; color:#fff}
+.btn-listview button.btn-view-calendar em {background-image:url('../../lib/images/icon_view_calendar.png')}
+.btn-listview button.btn-view-calendar.on em, .btn-listview button.btn-view-calendar:hover em {background-image:url('../../lib/images/icon_view_calendar_on.png')}
+.btn-listview button.btn-view-list em {background-image:url('../../lib/images/icon_view_list.png')}
+.btn-listview button.btn-view-list.on em, .btn-listview button.btn-view-list:hover em {background-image:url('../../lib/images/icon_view_list_on.png')}
+
+.paging {clear:both; height:4.5rem; margin:4rem 0 0 0; text-align:center}
+.paging:after {clear:both; overflow:hidden; display:block; content:""}
+.paging * {vertical-align:middle}
+.paging button {width:4.4rem; height:4.4rem; border:1px solid #ddd; font-size:0; text-indent:-99999rem}
+.paging button.btn-paging-prev {background:url('../../lib/images/icon_paging_prev.png') no-repeat 50%}
+.paging button.btn-paging-next {background:url('../../lib/images/icon_paging_next.png') no-repeat 50%}
+.paging span {display:inline-block; height:4.4rem; margin:0 1rem; line-height:4.4rem}
+.paging span a {display:inline-block; width:3rem; height:4.4rem; margin:0 0.5rem; color:#666; font-size:1.4rem; font-weight:200; line-height:4.4rem}
+.paging span a.on {color:#333; font-weight:600; font-size:1.6rem}
+.paging span a:hover {color:#333; font-weight:600; font-size:1.6rem}
+
+/* login */
+body#login {height:100%; background:#fff background-size:auto 100%}
+.loginwrap {float:right; position:relative; width:48%; padding-top:10%; padding-left:5%}
+.loginwrap h1 {position:absolute; top:4rem}
+.loginwrap h1 img {width:4.2rem}
+.loginwrap .loginbox {width:34rem}
+.loginwrap .loginbox h2 {margin:0 0 3rem 0; line-height:1.2}
+.loginwrap .loginbox h2 strong {display:block; color:#ff9e19; font-weight:800; font-size:3.2rem}
+.loginwrap .loginbox h2 span {display:block; color:#333; font-weight:800; font-size:3.2rem}
+.loginwrap .loginbox ul.membertype {clear:both; overflow:hidden; margin:0 0 4rem 0}
+.loginwrap .loginbox ul.membertype li {float:left; position:relative; margin-left:2rem; color:#999}
+.loginwrap .loginbox ul.membertype li:first-child {margin:0}
+.loginwrap .loginbox p label {display:block; margin-bottom:1rem; color:#999; font-size:1.4rem; font-weight:700; letter-spacing:0.01rem}
+.loginwrap .loginbox p .inpbox {display:block; height:3.7rem; border:0}
+.loginwrap .loginbox p .inpbox input {padding:0; border-width:0 0 1px 0; border-style:solid; border-color:#eaeaea; font-size:1.4rem; color:#333; font-weight:700}
+.loginwrap .loginbox p .inpbox input:focus {border-color:#ff9e19; color:#ff9e19}
+.loginwrap .loginbox .inp-id {margin:0 0 3rem 0}
+.loginwrap .loginbox .inp-pw {margin:0 0 2rem 0}
+.loginwrap .loginbox fieldset button {display:block; width:100%; height:6rem; background:#ff9e19; border-radius:3px; color:#fff; font-size:1.5rem; font-weight:700}
+.loginwrap .member-others {clear:both; overflow:hidden; padding:3.5rem 0; text-align:center; border-bottom:1px solid #eaeaea}
+.loginwrap .member-others a {display:inline-block; padding:0 0 0 1.2rem; margin:0 0.9rem 0 0; background:url('../../lib/images/icon_dot_01.png') no-repeat 0 50%; color:#999; font-weight:700}
+.loginwrap .member-others a:hover {text-decoration:underline}
+.loginwrap .member-others a:first-child {padding:0; background:0}
+.loginwrap .member-others a:last-child {margin:0; color:#333}
+.loginwrap .cscenter {clear:both; overflow:hidden; padding:3rem 0; text-align:center}
+.loginwrap .cscenter span {margin:0 0.5rem 0 0; color:#999; font-weight:100; font-size:1.8rem}
+.loginwrap .cscenter strong {color:#5f504e; font-weight:700; font-size:1.8rem}
+.loginwrap .cscenter a {color:#5f504e}
+.loginwrap .captchabox {clear:both; width:100%; height:7.8rem; margin-bottom:2rem}
+
+ul.form-insert {clear:both;}
+ul.form-insert li {clear:both; overflow:hidden; margin:0 0 1rem 0}
+ul.form-insert li > label {display:block; height:3.2rem; color:#333; font-size:1.4rem; font-weight:700; line-height:3.2rem}
+ul.form-insert li > label.ess {position:relative; }
+ul.form-insert li > label.ess:before {position:absolute; top:0; left:-1.1rem; width:0.7rem; height:0.7rem; background:url('../../lib/images/icon_essential.png') no-repeat 0 20%; content:""}
+ul.form-insert li > div {float:none; overflow:hidden}
+ul.form-insert li .inpbox {display:block}
+ul.form-insert li p.inpbox {clear:both; overflow:hidden}
+ul.form-insert li span.inpbox {float:left}
+ul.form-insert li .inpbox input {width:100%}
+ul.form-insert li p.optionbox, ul.form-insert li div.optionbox {display:block; line-height:0}
+ul.form-insert li span.optionbox {float:left; width:12.5rem; margin:0 0 0 0.8rem}
+ul.form-insert li span.optionbox:first-child {margin:0}
+ul.form-insert li .txt-blue {display:block; color:#5f504e; font-size:1.3rem; font-weight:100}
+ul.form-insert li .txt-black {display:block; margin-top:0.8rem; color:#767676; font-size:1.3rem; font-weight:100}
+ul.form-insert li .txt-green-check {display:block; margin-top:0.8rem; padding-left:1.8rem; background:url('../../lib/images/icon_msg_checked.png') no-repeat 0 50%; color:#00b479; font-size:1.3rem; font-weight:100}
+ul.form-insert li .txt-red {display:block; margin-top:0.8rem; padding-left:1.8rem; background:url('../../lib/images/icon_msg_error.png') no-repeat 0 50%; color:#ce3000; font-size:1.3rem; font-weight:100}
+ul.form-insert li .hy {float:left; margin:0 0.6rem; font-size:1.4rem; line-height:4.4rem}
+ul.form-insert li.orchoice {margin-bottom:1rem}
+ul.form-insert li.orchoice > label {float:left; width:12rem}
+ul.form-insert li.orchoice div {float:none; overflow:hidden; height:2.5rem}
+ul.form-insert li.orchoice div span {float:left; position:relative; height:2.5rem; margin-left:4rem}
+ul.form-insert li.orchoice div span:first-child {margin:0}
+ul.form-insert li.cellphone button {float:left; width:8rem; height:4.4rem; margin:0 0 0 0.8rem}
+ul.form-insert li.cellphone .inpbox {width:12.5rem; margin:0 0 0 0.8rem}
+ul.form-insert li.email .inpbox {width:15.7rem; margin:0 0 0 0.8rem}
+ul.form-insert li.email .inpbox:first-child {width:13.5rem; margin:0}
+ul.form-insert li.email .optionbox {width:15.4rem; margin:0 2% 0 0}
+ul.form-insert li.email .inpbox:last-child {display:block; float:none; overflow:hidden; width:auto}
+ul.form-insert li.authnumber .inpbox { width:12.5rem; margin:0}
+ul.form-insert li.authnumber button {float:left; width:8rem; height:4.4rem; margin:0 2rem}
+ul.form-insert li.authnumber .timer {float:left; margin-left:1rem; font-weight:100; line-height:4.4rem}
+ul.form-insert li.authnumber .txt-blue {float:left; line-height:4.4rem}
+ul.form-insert li.authnumber > label {color:#999}
+ul.form-insert li.birth .optionbox {width:15.4rem}
+ul.form-insert li.birth .optionbox:first-child {width:15.5rem}
+ul.form-insert li.birth .optionbox:last-child {display:block; float:none; overflow:hidden; width:auto; padding-left:2%}
+ul.form-insert li.address span.inpbox {width:39rem; margin:0 1rem 0 0}
+ul.form-insert li.address button {height:4.4rem}
+ul.form-insert li.address p.inpbox {margin-top:0.5rem}
+
+fieldset.sortview .optionbox {float:left; width:13.5rem; height:3rem; margin:0 0.9rem 2rem 0}
+fieldset.sortview .schbox {float:left; position:relative; width:15rem; height:3rem; border:1px solid #e1e1e1}
+fieldset.sortview .schbox button {z-index:1; position:absolute; right:0; top:0; width:2.8rem; height:2.8rem; background:url('../../lib/images/icon_search_01.png') no-repeat 50%; font-size:0; text-indent:-99999rem}
+fieldset.sortview .schbox .inpbox {height:2.8rem; border:0}
+
+.btn-listview .optionbox {float:left; width:13.5rem; height:3rem; margin:0 0.9rem 1rem 0}
+.btn-listview .schbox {float:left; position:relative; width:15rem; height:3rem; border:1px solid #e1e1e1}
+.btn-listview .schbox button {z-index:1; position:absolute; right:0; top:0; width:2.8rem; height:2.8rem; background:url('../../lib/images/icon_search_01.png') no-repeat 50%; font-size:0; text-indent:-99999rem}
+.btn-listview .schbox .inpbox {height:2.8rem; border:0}
+
+.boardlist {clear:both; overflow:hidden; width:100%; border-bottom:1px solid #d3d1d1}
+.boardlist table {width:100%; margin-bottom:1rem}
+.boardlist table thead th {padding:1.2rem 0; border-top:1px solid #d3d1d1; border-bottom:1px solid #d3d1d1; color:#666}
+.boardlist table tbody td {padding:0.6rem 0; border-top:1px solid #fff; text-align:center; color:#767676}
+.boardlist table tbody th {border-top:1px solid #fff}
+.boardlist table tbody tr:first-child td {border-top:0}
+.boardlist table tbody td.txt-left {padding:0.6rem; text-align:left}
+.boardlist table tbody td.txt-right {padding:0.6rem; text-align:right}
+.boardlist table tbody tr:first-child td {padding-top:1.5rem}
+.boardlist table tbody tr.on td, .boardlist table tbody tr.on th {background:#ff9e19; color:#fff}
+.boardlist table tbody tr.notice td {background:#f9f4ed}
+
+.boardlist.large-padding table thead th {padding:1.2rem 0 2.2rem 0; background:url('../../lib/images/bg_line_01.jpg') repeat-x 0 100%; border-bottom:0}
+.boardlist.large-padding table tbody:before {padding-top:1rem}
+.boardlist.large-padding table tbody td {padding:1.1rem 0}
+.boardlist.large-padding table tbody tr:first-child td {padding-top:1.4rem}
+.boardlist.large-padding table tbody tr:last-child td {padding-bottom:1.8rem}
+
+.boardview {clear:both; overflow:hidden; width:100%; border-top:1px solid #333}
+.boardview table {width:100%}
+.boardview table thead th {padding:0.8rem 2rem; vertical-align:top; text-align:left; border-left:1px solid #eaeaea; border-bottom:1px solid #eaeaea}
+.boardview table thead th:first-child {border-left:0}
+.boardview table thead th strong {float:left; margin-right:2rem; color:#666; font-weight:600}
+.boardview table thead th span {float:none; overflow:hidden; display:block; color:rgba(118,118,118,0.8); font-weight:100}
+.boardview table thead th span.iradio {float:left; margin-left:0.8rem}
+.boardview table thead th span.iradio:first-of-type {margin-left:0}
+.boardview table td.txt-contents {padding:4rem 2rem; border-bottom:1px solid #eaeaea}
+.boardview table td.txt-contents strong {display:block; margin:0 0 1.5rem 0; color:#666; font-weight:600}
+.boardview table td.txt-contents strong.txt-coaching {color:#ff9e19}
+.boardview table td pre {color:rgba(118,118,118,0.8); font-weight:100; line-height:1.769}
+
+.menu-modify {padding:6rem 0; margin:0 -6rem -6rem !important; background:#fcfbfa}
+.menu-modify .member-joinbox {background:#fff}
+.menu-modify .member-joinbox .join-contents.step2 {padding:4rem}
+.menu-modify .member-joinbox .join-contents.step2 ul.form-insert li {padding-left:0}
+.menu-modify .member-joinbox .join-contents.step2 ul.form-insert li > label {padding:0; background:0; font-size:1.3rem; color:#666}
+.menu-modify .member-joinbox .join-contents.step2 ul.form-insert li > div {margin-left:0}
+.menu-modify h2 {width:56rem; margin:0 auto 4rem !important; text-align:center}
+.menu-modify h2 strong {display:block; font-size:2.8rem; color:#333; font-weight:800}
+.menu-modify h2 span {display:block; margin-top:1rem; font-size:1.3rem; color:#767676; font-weight:100}
+
+.member-joinbox {width:56rem; margin:0 auto; background:#fff}
+.member-joinbox ul.join-step {width:100%; height:6rem; background:url('../../lib/images/bg_tabbox.jpg') repeat-x 0 100%}
+.member-joinbox ul.join-step li {float:left; width:33.3%; height:6rem; text-align:center; line-height:6rem}
+.member-joinbox ul.join-step li span {display:block; width:100%; height:100%; color:#999; font-size:1.6rem; font-weight:400}
+.member-joinbox ul.join-step li.on span {background:#ff9e19; color:#fff; font-weight:600}
+.member-joinbox .join-contents {clear:both; overflow:hidden; padding:4.5rem 4rem}
+.member-joinbox .join-contents.step2 {padding-bottom:2.9rem}
+.member-joinbox .join-contents.step2 ul.form-insert {padding-bottom:2rem}
+.member-joinbox .join-contents ul.form-insert {margin-bottom:4rem; padding-bottom:1rem; border-bottom:1px solid #eaeaea}
+.member-joinbox .join-complete {width:100%; margin:1rem 0 4rem 0; padding:8.8rem 0 4rem 0; text-align:center; background:url('../../lib/images/logo_03.png') no-repeat 50% 0; border-bottom:1px solid #eaeaea}
+.member-joinbox .join-complete p {color:#333; font-size:2.2rem}
+.member-joinbox .join-complete span {display:block; margin-top:0.5rem; font-size:1.4rem}
+
+
+.during-date {position:relative; width:30rem; height:4rem; margin:0 auto 1.5rem; text-align:center; padding:0 4rem}
+.during-date span {color:#333; font-size:2.8rem}
+.during-date button {position:absolute; top:0; width:4rem; height:4rem; font-size:0; text-indent:-99999rem}
+.during-date button.btn-prev {left:0; background:url('../../lib/images/icon_arr_prev.png') no-repeat 50%}
+.during-date button.btn-next {right:0; background:url('../../lib/images/icon_arr_next.png') no-repeat 50%}
+
+.rev-header {position:relative; margin:0 ; bottom:1rem}
+.rev-header:after {content:""; display:block; clear:both; overflow:hidden}
+.rev-header fieldset.sortview {position:absolute; left:0; bottom:2rem}
+.rev-header fieldset.sortview .optionbox {margin-bottom:0}
+.rev-header .btn-listview {position:absolute; right:0; bottom:0rem}
+.rev-header .btn-listview .optionbox {float:left; width:200px; height:3rem}
+.rev-header .during-date {width:42rem}
+.rev-header .btn-sch {height:3rem; margin-left:0.5rem}
+.rev-header .datebox {height:3rem}
+.rev-header .datebox + em {display:inline-block; width:3rem; text-align:center}
+
+.menu-counsel {clear:both; overflow:hidden; width:100%}
+.menu-counsel .calendarbox {clear:both; position:relative; width:100%; margin-top:2rem}
+.menu-counsel .calendarbox #calendar {position:relative; width:100%; margin:0 auto 4rem}
+.menu-counsel .calendarbox .fc-scroller.fc-day-grid-container {height:660px !important}
+.menu-counsel .calendarbox .fc-row.fc-week.fc-widget-content {height:110px !important}
+.menu-counsel .calendarbox .fc-head-container.fc-widget-header {padding:20px 0; border:0; border-top:1px solid #d3d1d1}
+.menu-counsel .calendarbox .fc th {border:0 !important}
+.menu-counsel .calendarbox .fc-body .fc-widget-content:first-child {border-left:0 !important}
+.menu-counsel .calendarbox .fc-body .fc-widget-content:last-child {border-right:0 !important}
+.menu-counsel .calendarbox .fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {display:inline-block; float:left !important; width:2.7rem; height:2.7rem; margin:0.6rem 0 0 0.8rem; padding:0 !important; text-align:center; line-height:2.7rem}
+.menu-counsel .calendarbox .fc-sun span {color:#bf5a3b}
+.menu-counsel .calendarbox .fc-unthemed td.fc-today {background:none !important}
+.menu-counsel .calendarbox .fc-today span.fc-day-number { background:#ff9e19; border-radius:50%;  color:#fff}
+.menu-counsel .calendarbox .btnset {position:absolute; top:0; left:50%; width:40rem; margin:0 0 0 -20rem}
+.menu-counsel .calendarbox .btnset .btn-prev {float:left; width:3rem; height:4.1rem; border:0; background:url('../../lib/images/icon_arr_prev.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-counsel .calendarbox .btnset .btn-next {float:right; width:3rem; height:4.1rem; border:0; background:url('../../lib/images/icon_arr_next.png') no-repeat 50%; vertical-align:middle; font-size:0}
+.menu-counsel .calendarbox .fc-event, .fc-event-dot {background-color:#eaeaea; border-color:#eaeaea; border-radius:0; color:#767676; font-size:1.3rem}
+.menu-counsel .calendarbox .fc-day-grid-event .fc-time {font-size:1.2rem}
+.menu-counsel .calendarbox .fc-event:hover {color:#767676}
+.menu-counsel .boardlist .btn-white {height:3rem}
+.menu-counsel .lesson-sheet .btnleft {margin-top:3rem}
+.menu-counsel .lesson-sheet .btnleft button {height:4rem; padding:0 1.5rem}
+
+.menu-login {clear:both; position:relative; width:45rem; margin:4rem auto 0}
+.menu-login h3 {width:100%; margin:0 0 2rem; text-align:center; color:#333; font-size:1.4rem}
+.menu-login .idlist {padding:4rem 5rem; background:#fff} 
+.menu-login .idlist .boardlist table tr > * {text-align:center}
+.menu-login .idlist .btncenter {margin-top:2rem}
+.menu-login .pwedit {padding:4rem 5rem; background:#fff} 
+.menu-login .pwedit .boardlist table tr > * {text-align:center}
+.menu-login .pwedit .btncenter {margin-top:2rem}
+
+/* Media Query */
+@media screen and (min-width:1440px){
+	html {font-size:10px}
+	body {font-size:1.3rem}
+	.pc-only {display:block}
+	.mobile-only {display:none}
+	.loginwrap h1 {right:4rem}
+	table .pc-only {display:table-cell}
+}
+
+@media screen and (min-width:1044px) and (max-width:1439px){
+	html {font-size:10px}
+	body {font-size:1.3rem}
+	.pc-only {display:block}
+	.mobile-only {display:none}
+	#wrap {width:100%; min-width:1280px; opacity:0}
+	.loginwrap {padding-left:10rem}
+	.loginwrap h1 {right:4rem}
+	table .pc-only {display:table-cell}
+}
+
+@media screen and (max-width:1044px) { /* tablet */
+	html {font-size:70%}
+	body {font-size:1.4rem}
+	body.device {overflow-x:hidden}
+	body.device #wrap {overflow-x:hidden}
+	.pc-only {display:none}
+	.mobile-only {display:block}
+	#wrap {min-width:720px}
+
+	.menu-modify {margin-top:-5.5rem !important}
+	.menu-modify.identi {margin-bottom:-5.5rem !important}
+
+}	
+
+@media screen and (max-width:768px) {
+	html {font-size:62.5%}
+	body {font-size:1.4rem}
+	.pc-only {display:none}
+	.mobile-only {display:block}
+	#wrap {min-width:320px; max-width:100%}
+
+	.menu-modify {margin-top:-2.5rem !important}
+	.menu-modify.identi {margin-bottom:-2.5rem !important}
+
+}
+
+@media screen and (max-width:1044px) { /* mobile, tablet */
+	body {background:#fff}	
+
+	input[type="radio"] + label {padding-left:3rem}
+	input[type="radio"] + label:before {width:3rem; height:3.3rem; background:url('../../lib/images/bg_iradio_off_m.jpg') no-repeat 0 50%}
+	input[type="radio"]:checked + label:before {height:3.3rem; background-image:url('../../lib/images/bg_iradio_on_m.jpg')}
+	.inpbox {height:6rem}
+
+	.toparea {min-width:720px; height:9.5rem}
+	.toparea h1 {float:none; position:absolute; left:50%; top:50%; width:13rem; height:3rem; margin:-1.5rem 0 0 -6.5rem; background:none}
+	.toparea h1 a {background:url('../../lib/images/logo_04.png') no-repeat 50%}
+	.toparea ul {display:none}
+	.toparea .welcome {margin-top:3rem; margin-right:3rem}
+	.toparea .welcome .btnset {display:none}
+	.toparea .btn-category {position:absolute; left:0; top:0; width:11rem; height:9rem; background:url('../../lib/images/icon_category_m.png') no-repeat 50%; font-size:0; text-indent:-99999rem}
+	.toparea .btn-category.menuClose {background:url('../../lib/images/icon_lnbclose.png') no-repeat 50%}
+	
+	.leftarea {position:absolute; left:-65%; top:0; z-index:60; width:60%; height:auto; padding:0 0 4rem 0; background:#5f504e}
+	.leftarea h1 {width:100%; height:9.5rem; padding:0 0 0 3.5rem; background:#675957}
+	.leftarea h1 a {display:block; width:100%; height:100%; background:url('../../lib/images/logo_w_m.png') no-repeat 0 50%; font-size:0; text-indent:-99999rem}
+	.leftarea .leftmenu {clear:both; overflow:hidden; margin-bottom:10rem}
+	.leftarea .leftmenu ul {margin:2rem 3.5rem 0 3.5rem}
+	.leftarea .leftmenu ul li {padding:6.5rem 0 0 0; border-bottom:1px solid #675957}
+	.leftarea .leftmenu ul li a {display:inline-block; height:5.5rem; color:#fff; font-size:3rem; font-weight:700}
+	.leftarea .leftmenu ul li.on a {color:#ff9e19; border-bottom:2px solid #ff9e19}
+	.leftarea .bannerwrap {margin:0 3.5rem 4rem}
+	.leftarea .bannerwrap .banner {width:100%}
+	.leftarea .lockerlist {margin:0 3.5rem}
+
+	.midarea {min-width:720px; padding-top:9.5rem}
+	
+	.contentsarea {padding:5.5rem 3.5rem 5.5rem 3.5rem}
+	.contentsarea > div {margin-top:0}
+	.contentsarea > div > h2 {margin-bottom:1rem}
+	
+	.maincontents {padding:5.5rem 3.5rem 5.5rem 3.5rem}
+	.maincontents .advertisingbox {width:60%}
+	.maincontents .entry-history {width:37%}
+
+	.cardbox ul li {float:left; margin-right:1.8rem}
+	.cardbox dl {height:12.5rem}
+	.cardbox dl dt {height:3.5rem; padding:0 1.5rem; line-height:3.5rem}
+	.cardbox dl dd {height:9rem; padding:1.5rem}
+	.cardbox dl:hover dt {padding-top:0.5rem}
+	
+	.boardview table thead th {padding:0.7rem 1.5rem}
+	.boardview table td.txt-contents {padding:3rem 0}
+	.boardview ul li {padding:0.5rem 1rem; border-bottom:1px solid #ececec}
+	.boardview ul li span.th {display:block; float:left; width:10rem}
+	.boardview ul li div.td {float:none; overflow:hidden}
+	.boardview ul li.full {padding:1rem}
+	.boardview ul li.full span.th {float:none; width:100%; margin-bottom:1rem}
+	.boardview ul li .iradio {display:inline-block; width:10rem; margin-left:0.5%}
+
+	body#login {background:#fff}
+	.loginwrap {float:none; width:100%; max-width:70rem; margin:0 auto; padding:25rem 5rem 5rem 5rem}
+	.loginwrap h1 {top:5rem; left:5.5rem}
+	.loginwrap h1 img {width:7rem}	
+	.loginwrap .loginbox {width:100%}
+	.loginwrap .loginbox input[type="radio"] + label {font-size:2.4rem}
+	.loginwrap .loginbox h2 {margin-bottom:10rem}
+	.loginwrap .loginbox h2 strong {font-size:7rem}
+	.loginwrap .loginbox h2 span {font-size:7rem}
+	.loginwrap .loginbox ul.membertype {margin-bottom:8rem}
+	.loginwrap .loginbox ul.membertype li {height:4rem; margin-left:4rem}
+	.loginwrap .loginbox p label {height:4rem; margin-bottom:1rem; font-size:2.6rem}
+	.loginwrap .loginbox p .inpbox {height:7rem}
+	.loginwrap .loginbox p .inpbox input {padding:0 20px; font-size:2.6rem}
+	.loginwrap .loginbox .inp-id {margin:0 0 5rem 0}
+	.loginwrap .loginbox .inp-pw {margin:0 0 8rem 0}
+	.loginwrap .loginbox fieldset button {height:10rem; font-size:2.8rem}
+	.loginwrap .member-others {padding:6rem 0}
+	.loginwrap .member-others a {font-size:2.4rem}
+	.loginwrap .cscenter {padding:5rem 0}
+	.loginwrap .cscenter span {font-size:3rem}
+	.loginwrap .cscenter strong {font-size:3rem}
+
+	.rev-header .datesch {float:none; width:100%; font-size:0; padding:0 0 1rem 0}
+	.rev-header .datesch .datebox {width:34%}
+	.rev-header .datesch .datebox + em {width:5%; vertical-align:middle; font-size:1.2rem}
+	.rev-header .datesch .btn-sch {width:25%; min-width:auto; margin-left:2%}
+	.rev-header .btn-listview {position:static; height:auto; margin-top:0.75reml }
+	.rev-header .btn-listview .optionbox {width:40%}
+	.rev-header .btn-listview button {margin:0 0 0 2%; padding:0 0.8rem; text-align:center}
+	.rev-header .btn-listview button:first-child {margin-left:0}
+	.rev-header .btn-listview button > em {padding:0; background-image:none !important}
+	.rev-header .btn-listview button.btn-view-calendar {width:23%}
+	.rev-header .btn-listview button.btn-view-list {width:33%}
+
+	.menu-counsel .rev-header {height:auto; margin-bottom:1.5rem}
+	.menu-counsel .boardlist.large-padding {overflow-x:scroll}
+	.menu-counsel .boardlist.large-padding table {white-space:nowrap}
+	.menu-counsel .boardlist.large-padding table tbody td {padding:1.1rem}
+	.menu-counsel .paging {height:auto; padding-bottom:4.5rem}
+	.menu-counsel .paging .btnright {top:auto; bottom:0}
+
+}	
+
+@media screen and (max-width:768px) { /* 모바일 가로 */
+	input[type="radio"] + label:before {width:2rem; height:2rem; background-size:2rem auto}
+	input[type="radio"]:checked + label:before {width:2rem; height:2rem;  background-size:2rem auto}
+
+	.toparea {min-width:320px; height:6rem}
+	.toparea h1 {width:9rem; height:3rem; margin:-1.5rem 0 0 -4.5rem; background:none}
+	.toparea h1 a {background-size:100% auto}
+	.toparea ul {display:none}
+	.toparea .welcome {margin-top:1.5rem; margin-right:1.5rem}
+	.toparea .welcome .btnset {display:none}
+	.toparea .btn-category {width:6rem; height:6rem; background-size:2rem auto}
+	.toparea .btn-category.menuClose {background-size:2rem auto}
+
+	.midarea {min-width:320px; padding-top:6rem}
+	
+	.contentsarea {padding:2.5rem 5% 2.5rem 5%}
+	.contentsarea > div > h2 span {display:none}
+	
+	.maincontents {padding:2.5rem 5% 2.5rem 5%}
+	.maincontents .advertisingbox {float:none; width:100%}
+	.maincontents .entry-history {float:none; width:100%; margin-left:0}
+
+	.leftarea h1 {height:6rem}
+	.leftarea h1 a {display:block; width:100%; height:100%; background-size:16rem auto}
+	.leftarea .leftmenu {margin-bottom:6rem}
+	.leftarea .leftmenu ul {margin:2rem 3.5rem 0 3.5rem}
+	.leftarea .leftmenu ul li {padding:3rem 0 0 0}
+	.leftarea .leftmenu ul li a {display:inline-block; height:4rem; font-size:2rem}
+
+	.paging p button {width:3rem; height:3rem}
+	.paging p span {height:3rem}
+	.paging p span a {width:3rem; height:3rem; margin-left:0.2rem}
+	
+	.boardview table thead th strong {float:none; display:block}
+
+	ul.form-insert {margin:0 0 2rem 0; border-bottom:1px solid #e1e1e1}
+	ul.form-insert li .inpbox {height:4rem}
+	ul.form-insert li span.optionbox {float:left; width:25%; height:4rem; margin:0 0 2rem 2%}
+	ul.form-insert li span.optionbox:first-child {margin:0}
+	ul.form-insert li.cellphone .inpbox {float:left; width:25%; margin:0 0 0 2%}
+	ul.form-insert li.cellphone button {width:19%; min-width:auto; height:4rem; padding:0; margin-left:2%}
+	ul.form-insert li.email .inpbox:first-child {width:27%}
+	ul.form-insert li.email .inpbox:first-child + em {width:5%; line-height:4rem}
+	ul.form-insert li.email .inpbox:last-child {}
+	ul.form-insert li.email .optionbox {width:30%}
+	ul.form-insert li.authnumber .inpbox {width:57%}
+	ul.form-insert li.authnumber .timer {width:20%; height:4rem; margin:0 0 0 2%; line-height:4rem}
+	ul.form-insert li.authnumber button {width:19%; min-width:auto; height:4rem; padding:0; margin:0 0 0 2%}
+	ul.form-insert li.authnumber .txt-blue {display:block; float:none; clear:both; line-height:4rem}
+	ul.form-insert li.address span.inpbox {width:50%}
+	ul.form-insert li.address button {height:4rem}
+	ul.form-insert li.birth .optionbox {width:32%; margin-left:2%}
+	ul.form-insert li.birth .optionbox:first-child {width:32%; margin-left:0} 
+	ul.form-insert li.orchoice div {height:2rem}
+	ul.form-insert li.orchoice div span {height:2rem}
+
+	.menu-modify {margin-top:-2.5rem !important}
+	.menu-modify.identi {margin-bottom:-2.5rem !important}
+
+	.member-joinbox {width:90%; max-width:56rem}
+	.member-joinbox .join-contents {padding:4rem 3rem}
+
+}	
+
+@media screen and (max-width:480px) { /* 모바일 세로 */
+	body {background:#fff}	
+
+	input[type="radio"] + label:before {width:1.5rem; height:1.9rem; background-size:1.5rem auto}
+	input[type="radio"]:checked + label:before {width:1.5rem; height:1.9rem;  background-size:1.5rem auto}
+	
+	.toparea {height:5rem}
+	.toparea .btn-category {width:5rem; height:5rem}
+	.toparea h1 {width:7.4rem; margin-left:-3.7rem; background-size:7.4rem auto}
+	.toparea .welcome {margin:1rem 1.5rem 0}
+	.toparea .welcome p {height:3rem; font-size:1rem}
+	
+	.midarea {padding-top:5rem}
+
+	.contentsarea {padding:3rem 1.5rem 2rem}
+	.contentsarea > div {margin-top:0}
+	.contentsarea > div > h2 strong {font-size:2rem}
+
+	.leftarea h1 {height:5rem; padding-left:2rem}
+	.leftarea h1 a {background-size:12rem auto}
+	.leftarea .leftmenu ul {margin:2rem 2rem 0 2rem}
+	.leftarea > dl {margin-left:2rem; margin-right:2rem}
+	
+	.maincontents {margin:0 !important}
+	.maincontents .left-contents {padding:2rem 1.5rem}
+	.maincontents .right-contents {padding:2rem 1.5rem}
+	
+	.boardlist table thead th {font-size:1.3rem}
+	.boardlist table tbody td {font-size:1.3rem}
+
+	.boardview table thead th {padding:0.4rem 0.5rem}
+
+	.paging p button {width:2rem; height:2rem}
+	.paging p span {height:2rem}
+	.paging p span a {width:2rem; height:2rem; line-height:2rem; margin-left:0.3rem}
+
+	fieldset.sortview .optionbox {width:40%; margin-right:0}
+	fieldset.sortview .schbox {width:58%; margin-left:1%}
+	
+	ul.form-insert li.orchoice div span {margin-left:2rem}
+
+	.loginwrap {padding:11.8rem 1.5rem 2rem 1.5rem}
+	.loginwrap h1 {top:2rem; left:1.5rem}
+	.loginwrap h1 img {width:3.35rem}
+	.loginwrap .loginbox input[type="radio"] + label {padding-left:2rem; font-size:1.3rem}
+	.loginwrap .loginbox h2 {margin-bottom:4.8rem}
+	.loginwrap .loginbox h2 strong, .loginwrap .loginbox h2 span {font-size:3.5rem}
+	.loginwrap .loginbox p label {height:auto; margin-bottom:0.5rem; font-size:1.3rem}
+	.loginwrap .loginbox ul.membertype {height:1.9rem; margin-bottom:3rem}
+	.loginwrap .loginbox p .inpbox {height:3rem}
+	.loginwrap .loginbox p .inpbox input {font-size:1.3rem}
+	.loginwrap .loginbox fieldset button {height:5.5rem; font-size:1.4rem}
+	.loginwrap .loginbox .inp-id {margin:0 0 3rem 0}
+	.loginwrap .loginbox .inp-pw {margin:0 0 4rem 0}
+	.loginwrap .member-others {padding:3.5rem 0}
+	.loginwrap .member-others a {font-size:1.2rem}
+	.loginwrap .member-others a {padding:0 0 0 0.9rem; margin:0 0.5rem 0 0; background:url('../../lib/images/icon_dot_01_m.png') no-repeat 0 50%; background-size:0.3rem auto}
+	.loginwrap .cscenter {padding:2.5rem 0}
+	.loginwrap .cscenter span, .loginwrap .cscenter strong {font-size:1.7rem}
+
+
+	.menu-modify {margin:-3rem -1.5rem !important; padding:3rem 1.5rem 6rem}
+	.menu-modify h2 {width:100%}
+	.menu-modify .member-joinbox .join-contents.step2 {padding:2rem 1.5rem 2.9rem}
+	.menu-modify.identi {margin-bottom:-2rem !important}
+
+}

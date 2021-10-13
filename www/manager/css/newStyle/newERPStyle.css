@@ -1,0 +1,502 @@
+
+ul, li{
+    list-style-type:none;
+} 
+ 
+a{
+    text-decoration: none;
+
+} 
+
+a:link{
+    text-decoration: none;
+    color:white;
+}
+a:visited{
+    text-decoration: none;
+    color:white;
+}
+a:active{
+    text-decoration: none;
+    color:white;
+}
+a:hover{
+    text-decoration: none;
+    color:white;
+}
+body div.popFrame{
+    /* background-color:#000000; */
+}
+body div.popFrame div.dvTitle h2{
+    padding-left:20px;
+}
+body div.popFrame div.mainContent{
+    background-color:#FFFFFF;
+
+}
+
+
+body div.popFrame div.mainContent div.dvListTable table.listTable{
+    width:100%;
+
+    padding-left:30px;
+    background-color: rgb(238, 235, 229);
+    border-collapse: collapse;
+
+}
+body div.popFrame div.mainContent div.dvListTable table.listTable tr:hover{
+    background-color: #999999;
+}
+
+body div.popFrame div.mainContent div.dvListTable table.listTable th{
+    border: 1px solid #999999;
+    border-bottom: 2px solid #22B9D5;
+    padding-top:5px;
+    padding-bottom:5px;
+    vertical-align: middle;
+}
+
+body div.popFrame div.mainContent div.dvListTable table.listTable td{
+    border:0px solid  rgb(238, 235, 229);
+    border-bottom: 1px solid #AAAAAA;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+
+body div.popFrame div.mainContent div.dvListTable table.listTable td.tdNoBar{
+    border:0px solid  rgb(238, 235, 229);
+    padding-top:5px;
+    padding-bottom:5px;
+}
+body div.popFrame div.mainContent div.subTitle h3{
+    padding-left:20px;
+}
+div.popFrame div.mainContent div.dvDashboard{
+    /* background-color: cornflowerblue; */
+    padding-left:20px;
+    padding-right: 20px;
+}
+div.popFrame div.mainContent div.dvDashboard table.dashboardTable{
+
+    width:100%;
+    /* background-color: cadetblue; */
+
+}
+div.popFrame div.mainContent div.dvDashboard table.dashboardTable th{
+    border:1px solid #BBBBBB;
+    background-color: #F4F4F4;
+    vertical-align: middle;
+    /* border-spacing: 200px; */
+    
+    /* margin: 10px; */
+    padding:10px;
+}
+div.popFrame div.mainContent div.dvDashboard table.dashboardTable td{
+    border:1px solid #BBBBBB;
+    vertical-align: middle;
+    padding:10px;
+}
+div.popFrame div.mainContent div.dvButtonRight{
+    /* width:98%; */
+
+    /* padding-right:20px; */
+    padding-left:20px;
+    /* padding-right: 20px; */
+
+    text-align: right;
+        
+}
+
+/*전체 frame table 관련*/
+body table#wholeFrame{
+    border:solid 0px;
+    border-collapse: collapse;
+
+}
+body table#wholeFrame td, body table#wholeFrame th{
+    vertical-align: top;
+}
+body table#wholeFrame td{
+    margin:0px;
+    padding:0px;
+    /* width:100%;
+    height:100%; */
+    border-collapse: collapse;
+}
+body table#wholeFrame td#tdTopArea{
+    margin:0px;
+    padding:0px;
+    background-color:#FF6F61;
+
+}
+body table#wholeFrame td#tdLeftArea{
+    margin:0px;
+    padding:0px;
+    height:1200px;
+    background-color: #43444D;
+
+}
+body table#wholeFrame td#tdContent{
+    margin:0px;
+    padding:0px;
+    height:1200px;
+
+}
+.mainContent{
+    margin:0px;
+    padding:0px;
+    width:100%;
+    /* background-color: #ffe398; */
+
+}
+.mainContent h2.title{
+    padding-left:30px;
+}
+.mainContent div.dvListTable{
+    padding-left:30px;
+    width:98%;
+    /* padding-left:30px;
+    padding-right:30px; */
+}
+.mainContent div.dvListTable table.listTable{
+    width:100%;
+
+    padding-left:30px;
+    background-color: rgb(238, 235, 229);
+    border-collapse: collapse;
+}
+.mainContent div.dvListTable table.listTable th{
+    border: 1px solid #999999;
+    border-bottom: 2px solid #22B9D5;
+    padding-top:5px;
+    padding-bottom:5px;
+    vertical-align: middle;
+}
+.mainContent div.dvListTable table.listTable td{
+    border:0px solid  rgb(238, 235, 229);
+    border-bottom: 1px solid #AAAAAA;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.mainContent div.dvListTable table.listTable td.tdNoBar{
+    border:0px solid  rgb(238, 235, 229);
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.mainContent div.dvListTable input[type="text"]{
+    height:27px;
+
+    /* line-height: normal; */
+    
+    border:1px solid #b5b5b5;
+
+
+    /* padding-left:30px;
+    padding-right:30px; */
+}
+.mainContent div.dvListTable input[type="text"].block_red{
+    color:#FF0000;
+}
+.mainContent div.dvListTable input[type="text"].block_blue{
+    color:#0000FF;
+}
+.mainContent div.dvDashboard{
+    padding-left:30px;
+    width:98%;
+
+}
+.mainContent div.dvCnt{
+    padding-left:30px;
+    width:98%;
+    font-weight: bolder;
+    font-size:large;
+
+}
+.mainContent div.dvButtonRight{
+    /* width:98%; */
+
+    padding-left:30px;
+    width:98%;
+    text-align: right;
+        
+}
+.mainContent div.dvButtonLeft{
+    /* width:98%; */
+
+    padding-left:30px;
+    width:98%;
+    text-align: left;
+        
+}
+.mainContent div.dvButtonCenter{
+    padding-left:30px;
+    width:98%;
+    text-align: center;
+
+}
+.mainContent div.dvDashboard table.dashboardTable{
+
+    padding-left:30px;
+    border:1px solid #BBBBBB;
+    border-collapse: collapse;
+    width:100%;
+
+
+}
+body table#wholeFrame div.mainContent div.dvDashboard table.dashboardTable th{
+    border:1px solid #BBBBBB;
+    background-color: #F4F4F4;
+    vertical-align: middle;
+    /* border-spacing: 200px; */
+    
+    /* margin: 10px; */
+    padding:10px;
+
+}
+body table#wholeFrame div.mainContent div.dvDashboard table.dashboardTable td{
+    border:1px solid #BBBBBB;
+    /* border-spacing: 200px; */
+    /* margin: 10px; */
+    padding:10px;
+    vertical-align: middle;
+    /* text-align: center; */
+
+}
+/* .mainContent div.dvListTable table.listTable th{
+
+
+
+
+
+} */
+.topArea{
+    margin:0px;
+    padding:0px;
+    padding-bottom:20px;
+    height: 20px;
+    width:100%;
+    background-color:#FF6F61;
+}
+.topArea h2{
+    padding-bottom:10px;
+    padding-left:20px;
+    color:#FFFFFF;
+}
+.sideMenu{
+    margin:0px;
+    padding:0px;
+    background-color: #43444D;
+
+}
+/*서브트리 관련*/
+.sideMenu div.noSelectedM,.sideMenu div.selectedM{
+    padding-left:30px;
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+}
+.sideMenu div.selectedM{
+    background-color: #22B9D5;
+}
+.sideMenu div.noSelectedM{
+    background-color: #43444D;
+}
+.sideMenu div.noSelectedM:hover{
+    background-color: #5C5D6A;
+}
+.sideMenu div.subTree div{
+    padding-left:30px;
+    padding-top:7px;
+    padding-right:7px;
+    padding-bottom:7px;
+    background-color: #222222;
+    color:#888888;
+}
+.sideMenu div.subTree div:hover{
+    background-color: #2E2F3A;
+}
+.sideMenu div.subTree div a{
+    color:#888888;
+}
+.sideMenu div.subTree div.selectedS a{
+    color:#FFFFFF;
+}
+
+
+/*---------------------공간 div---------------------*/
+.space5px{
+    height:5px;
+}
+.space10px{
+    height:10px;
+}
+.space20px{
+    height:20px;
+}
+.space30px{
+    height:30px;
+}
+.space50px{
+    height:50px;
+}
+
+/*------------버튼---------------------*/
+.btnSpecial{
+    border: 0px;
+    background-color:#FF3333;
+    font-weight: bold;
+    outline: 0;
+    color:#FFFFFF;
+    width:180px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+
+}
+.btnSpecial:hover{
+    background-color:#F24141;
+}
+
+.btnSpecial:active{
+    background-color:#8a1717;
+}
+.btnGreen{
+    border: 0px;
+    background-color:#2fa039;
+    font-weight: bold;
+    outline: 0;
+    color:#FFFFFF;
+    width:180px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+
+}
+.btnGreen:hover{
+    background-color:#3db447;
+}
+
+.btnGreen:active{
+    background-color:#2e8835;
+}
+.btnNormal{
+    border: 0px;
+    background-color:#B5BDC6;
+    outline: 0;
+    color:#FFFFFF;
+    font-weight: bold;
+    width:180px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 5px;
+
+}
+.btnNormal:hover{
+    background-color:#abb3b3;
+}
+.btnNormal:active{
+    background-color:#707676;
+}
+.btnExcelUpload{
+    border: 0px;
+    background-color:#2fa039;
+    outline: 0;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btnExcelUpload:hover{
+    background-color:#3db447;
+}
+.btnExcelUpload:active{
+    background-color:#2e8835;
+}
+.btnRegister{
+    border: 0px;
+    background-color:#FF3333;
+    outline: 0;
+    color:#FFFFFF;
+    font-weight: bold;
+    width:100px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.btnRegister:hover{
+    background-color:#F24141;
+}
+
+.btnRegister:active{
+    background-color:#8a1717;
+}
+.btnChange{
+    border: 0px;
+    background-color:#B5BDC6;
+    outline: 0;
+    color:#FFFFFF;
+    font-weight: bold;
+    width:100px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.btnChange:hover{
+    background-color:#abb3b3;
+}
+.btnChange:active{
+    background-color:#707676;
+}
+
+
+/*--------------- input : 파일--------------------*/
+.fileHidden{
+    display:none;
+}
+
+div.uploadFileName{
+    float:left;
+    width:250px;
+    padding:6px;
+    padding-left:10px;
+    margin-left:1px;
+    background-color:#DDDDDD;
+    border:1px solid #AAAAAA;
+    color : #888888;
+}
+
+
+/*--------------- Line--------------------*/
+hr.lineTitle{
+    width:98%;
+    margin-left:30px;
+    margin-right:30px;
+    margin-top:-15px;
+    margin-bottom: 30px;
+
+    border-top:1px solid #222222;;
+}
+hr.popLineTitle{
+    /* width:98%; */
+    margin-left:20px;
+    /* margin-right:20px; */
+    margin-top:-15px;
+    margin-bottom: 30px;
+
+    border-top:1px solid #222222;;
+}
+
+

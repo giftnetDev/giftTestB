@@ -1,0 +1,341 @@
+<?session_start();?>
+<?
+
+#====================================================================
+# DB Include, DB Connection
+#====================================================================
+	require "../../_classes/com/db/DBUtil.php";
+
+	$conn = db_connection("w");
+
+#====================================================================
+# common_header Check Session
+#====================================================================
+	//require "../../_common/common_header.php"; 
+
+#=====================================================================
+# common function, login_function
+#=====================================================================
+	require "../../_common/config.php";
+	require "../../_classes/com/util/Util.php";
+	require "../../_classes/com/util/ImgUtil.php";
+	require "../../_classes/com/etc/etc.php";
+	require "../../_classes/biz/goods/goods.php";
+	require "../../_classes/biz/stock/stock.php";
+	require "../../_classes/biz/company/company.php";
+	require "../../_classes/biz/work/work.php";
+
+#====================================================================
+# Request Parameter
+#====================================================================
+
+	$req_no = trim(base64url_decode($req_no));
+	//$req_no = trim($req_no);
+
+    echo base64url_decode($req_no);
+
+#===============================================================
+# Get Search list count
+#===============================================================
+
+	$arr_rs = selectGoodsRequestByReqNo($conn, $req_no);
+
+	$REQ_DATE = $arr_rs[0]["REQ_DATE"];
+	$SENDER_CP = $arr_rs[0]["SENDER_CP"];
+	$CEO_NM = $arr_rs[0]["CEO_NM"];
+	$SENDER_ADDR = $arr_rs[0]["SENDER_ADDR"];
+	$SENDER_PHONE = $arr_rs[0]["SENDER_PHONE"];
+	$BUY_CP_NM = $arr_rs[0]["BUY_CP_NM"];
+	$BUY_MANAGER_NM = $arr_rs[0]["BUY_MANAGER_NM"];
+	$BUY_CP_PHONE = $arr_rs[0]["BUY_CP_PHONE"];
+	$DELIVERY_TYPE = $arr_rs[0]["DELIVERY_TYPE"];
+	$MEMO = $arr_rs[0]["MEMO"];
+	$TOTAL_REQ_QTY = $arr_rs[0]["TOTAL_REQ_QTY"];
+	$TOTAL_BUY_TOTAL_PRICE = $arr_rs[0]["TOTAL_BUY_TOTAL_PRICE"];
+
+	$arr_rs_goods = listGoodsRequestGoods($conn, $req_no);
+
+	
+	
+
+	if(sizeof($arr_rs) > 0) { 
+
+		$file_name="발주서-".date("Ymd").".xls";
+		header( "Content-type: application/vnd.ms-excel" ); // 헤더를 출력하는 부분 (이 프로그램의 핵심)
+		header( "Content-Disposition: attachment; filename=$file_name" );
+		header( "Content-Description: gift@giftnet.co.kr" );
+	
+?>
+<!DOCTYPE html PUBLIC "-//W3C//dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$g_charset?>" />
+<title><?=$g_title?></title>
+<style>td { mso-number-format:\@; } </style> 
+</head>
+<body>
+	
+	<table>
+		<tr>
+			<td></td>
+			<td>
+			
+				<TABLE border=1>
+					<tr>
+						<th colspan="10"><font size="6"><b>발 주 서</b></font></th>
+					</tr>
+				</table>
+				<br/>
+				<TABLE border=0>
+					<tr>
+						<th colspan="9"></th>
+						<td>발주일 : <?=date("Y년 n월 j일",strtotime($REQ_DATE))?></td>
+					</tr>
+				</table>
+				<br/>
+				<TABLE border=1>
+					<tr>
+						<th colspan="2">발신처</th>
+						<th colspan="3">
+							<?=$SENDER_CP?>
+							
+						</th>
+						<th colspan="2">수신처</th>
+						<th colspan="3">
+							<?=$BUY_CP_NM?>
+							
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2">대표자</th>
+						<th colspan="3">
+							<?=$CEO_NM?>
+							
+						</th>
+						<th colspan="2">담당자</th>
+						<th colspan="3">
+							<?=$BUY_MANAGER_NM?>
+							
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2">주소</th>
+						<th colspan="3">
+							<?=$SENDER_ADDR?>
+							
+						</th>
+						<th colspan="2">연락처</th>
+						<th colspan="3">
+							<?=$BUY_CP_PHONE?>
+							
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2">연락처</th>
+						<th colspan="3">
+							<?=$SENDER_PHONE?>
+							
+						</th>
+						<th rowspan="2" colspan="2">특이사항</th>
+						<th rowspan="2" colspan="3">
+							<?=$MEMO?>
+							
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2">배송방식</th>
+						<th colspan="3">
+							<?=$DELIVERY_TYPE?>
+							
+						</th>
+					</tr>
+				</table>
+				<br/>
+				<table border=1>
+					<colgroup>
+						<col width="*" />
+						<col width="4%" />
+						<col width="5%" />
+						<col width="7%" />
+						<col width="7%" />
+						<col width="7%" />
+						<col width="7%" />
+						<col width="7%" />
+						<col width="10%" />
+						<col width="10%" />
+					</colgroup>
+					<tr>
+						<th>
+							품명
+						</th>
+						<th>
+							수량
+						</th>
+						<th>
+							판매단가<br/>
+							(+VAT)
+						</th>
+						<th>
+							합계<br/>
+							(+VAT)
+						</th>
+						<th>
+							수취인명
+						</th>
+						<th>
+							수취인연락처
+						</th>
+						<th>
+							수취인휴대폰
+						</th>
+						<th>
+							수취인주소
+						</th>
+						<th>
+							비고 1
+						</th>
+						<th>
+							비고 2
+						</th>
+					</tr>
+					<?
+
+					if (sizeof($arr_rs_goods) > 0) {
+						for ($j = 0 ; $j < 13; $j++) {
+						
+							//GOODS_NAME, BUY_PRICE, REQ_QTY, BUY_TOTAL_PRICE, RECEIVE_QTY, RECEIVE_DATE, REASON, 
+							//RECEIVER_NM, RECEIVER_ADDR, RECEIVER_PHONE, RECEIVER_HPHONE
+
+							$GOODS_NAME					= trim($arr_rs_goods[$j]["GOODS_NAME"]);
+							$REQ_QTY					= trim($arr_rs_goods[$j]["REQ_QTY"]);
+							$BUY_PRICE					= trim($arr_rs_goods[$j]["BUY_PRICE"]);
+							$BUY_TOTAL_PRICE			= trim($arr_rs_goods[$j]["BUY_TOTAL_PRICE"]);
+
+							$RECEIVER_NM				= trim($arr_rs_goods[$j]["RECEIVER_NM"]);
+							$RECEIVER_ADDR				= trim($arr_rs_goods[$j]["RECEIVER_ADDR"]);
+							$RECEIVER_PHONE				= trim($arr_rs_goods[$j]["RECEIVER_PHONE"]);
+							$RECEIVER_HPHONE			= trim($arr_rs_goods[$j]["RECEIVER_HPHONE"]);
+							$MEMO1						= trim($arr_rs_goods[$j]["MEMO1"]);
+							$MEMO2						= trim($arr_rs_goods[$j]["MEMO2"]);
+
+
+							if($REQ_QTY <> "") 
+								$REQ_QTY = number_format($REQ_QTY);
+							
+							if($BUY_PRICE <> "") 
+								$BUY_PRICE = number_format($BUY_PRICE);
+							
+							if($BUY_TOTAL_PRICE <> "") 
+								$BUY_TOTAL_PRICE = number_format($BUY_TOTAL_PRICE);
+
+
+					?>
+					<tr class="row">
+						<th>
+							<?=$GOODS_NAME?>
+							
+						</th>
+						<th>
+							<?=$REQ_QTY?>
+							
+						</th>
+						<th>
+							<?=$BUY_PRICE?>
+							
+						</th>
+						<th>
+							<?=$BUY_TOTAL_PRICE?>
+							
+						</th>
+						<th>
+							<?=$RECEIVER_NM?>
+							
+						</th>
+						<th>
+							<?=$RECEIVER_PHONE?>
+							
+						</th>
+						<th>
+							<?=$RECEIVER_HPHONE?>
+							
+						</th>
+						<th>
+							<?=$RECEIVER_ADDR?>
+							
+						</th>
+						<th>
+							<?=$MEMO1?>
+							
+						</th>
+						<th>
+							<?=$MEMO2?>
+							
+						</th>
+					</tr>
+					<?
+							
+						}
+					}
+
+					?>
+					<tr>
+						<th colspan="4">
+							합 계
+						</th>
+						<th>
+								
+						</th>
+						<th>
+							
+						</th>
+						<th>
+
+						</th>
+						<th>
+
+						</th>
+						<th>
+							<?=number_format($TOTAL_REQ_QTY)?> 개
+						</th>
+						<th>
+							<?=number_format($TOTAL_BUY_TOTAL_PRICE)?> 원
+						</th>
+					</tr>
+				</table>
+			
+			</td>
+			<td></td>
+		</tr>
+	</table>
+	
+</body>
+</html>
+
+<?
+	} else { 
+
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$g_charset?>" />
+<title>취소된 발주서입니다</title>
+</head>
+<body>
+	<script type="text/javascript">
+		alert('취소된 발주서입니다.');
+	</script>
+</body>
+</html>
+<?
+}
+?>
+<?
+#====================================================================
+# DB Close
+#====================================================================
+
+	mysql_close($conn);
+?>

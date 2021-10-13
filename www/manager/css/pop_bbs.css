@@ -1,0 +1,103 @@
+/*bbs List*/
+#bbsList { float: left; clear: both; width: 685px; margin-left: 15px; display: inline; }
+	#bbsList table{ border-collapse: collapse; background-color: transparent;}
+	#bbsList thead th{ height:24px; background-color:#999999; color: #ffffff; }
+	#bbsList tbody tr td{ border-bottom:1px solid #eaeaea; padding:6px 0 5px 0; text-align:center; }
+	#bbsList tfoot tr td{ height:11px; background:url(../images/common/bbs/tfoot_bg.gif) left bottom repeat-x; }
+	#bbsList .lpd10 {text-align:left; padding-left:10px; }
+	#bbsList .rpd10 {text-align:right; padding-right:10px; }
+	#bbsList .lpd20 {text-align:left; padding-left:20px; }
+	#bbsList .font {font-family: verdana; font-size: 10px;}
+	.btn_write { float: right; padding-top: 10px; padding-right: 5px; }
+	.btn_write2 { float: right; padding-top: 10px; padding-bottom: 5px; }
+
+#bbsList2 { float: left; clear: both; width: 685px; margin-left: 15px; display: inline; }
+	#bbsList2 table{ border-collapse: collapse; background-color: transparent;}
+	#bbsList2 th{ height:24px; background-color:#999999; color: #ffffff; }
+	#bbsList2 tr td{ padding:2px 2px 2px 2px; text-align:right; }
+	#bbsList2 tr td.center{ padding:2px 2px 2px 2px; text-align:center; }
+	#bbsList2 tr td.left{ padding:5px 2px 2px 2px; text-align:left; }
+	#bbsList2 .lpd10 {text-align:left; padding-left:10px; }
+	#bbsList2 .rpd10 {text-align:right; padding-right:10px; }
+	#bbsList2 .lpd20 {text-align:left; padding-left:20px; }
+	#bbsList2 .font {font-family: verdana; font-size: 10px;}
+/*
+	.btn_write { float: right; padding-top: 10px; padding-right: 5px; }
+*/
+/*bbs Read*/
+#bbsRead { float: left; clear: both; width:685px; margin-left: 15px; display: inline; }
+	#bbsRead table{ border-collapse: collapse; background-color: transparent;}
+	#bbsRead tbody tr td{ height:28px; background-color:#ffffff; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsRead tbody tr td.subject{ background-color: transparent; padding:20px 60px 20px 25px; line-height:22px; }
+	#bbsRead tfoot tr td{ height:11px; background:url(../images/common/bbs/tfoot_bg.gif) left bottom repeat-x; }
+	#bbsRead .lpd10 {text-align:left; padding-left:10px; }
+	#bbsRead .lpd20 {text-align:left; padding-left:20px; }
+	#bbsRead .bold { font-weight: bold; }
+	#bbsRead .font {font-family: verdana; font-size: 10px;}
+	.btn_list { float: left; width:774px; text-align:center; padding-top: 20px; word-spacing: 5px; }
+
+/*bbs Write*/
+#bbsWrite { float: left; clear: both;  width:685px; margin-left: 15px; display: inline; }
+	#bbsWrite table{ border-collapse: collapse; background-color: transparent;}
+	#bbsWrite thead td{ height:28px; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsWrite tbody tr td{ height:28px; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsWrite tbody tr td.subject{ border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; padding: 5px 0 17px 0; }
+	#bbsWrite tfoot tr td{ height:11px; background:url(../images/common/bbs/tfoot_bg.gif) left bottom repeat-x; }
+	.lpd10 {text-align:left; padding-left:10px; }
+	.lpd20 {text-align:left; padding-left:20px; }
+	.rpd20 {text-align:right; padding-left:20px; }
+
+/*bbs Write2*/
+
+#bbsWrite2 { float: left; clear: both;  width:685px; margin-left: 15px; display: inline; }
+	#bbsWrite2 table{ border-collapse: collapse; background-color: transparent;}
+	#bbsWrite2 thead td{ height:28px; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsWrite2 tbody tr td.line{ height:28px; border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; }
+	#bbsWrite2 tbody tr td.subject{ border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea; padding: 5px 0 17px 0; }
+	#bbsWrite2 tfoot tr td{ height:11px; background:url(../images/common/bbs/tfoot_bg.gif) left bottom repeat-x; }
+	.lpd10 {text-align:left; padding-left:10px; }
+	.lpd20 {text-align:left; padding-left:20px; }
+	.rpd20 {text-align:right; padding-left:20px; }
+
+
+/*bbs page number navigation*/
+#bbspgno { float: left; clear: both; width: 685px; margin-left: 15px; font-family: verdana; font-size:10px; color:#888888; text-align:center; word-spacing:3px; padding-top: 16px; display: inline;}
+#bbspgno strong.sel{ font-weight: bold; color: #ffa200; }
+.bnk { padding:0px; margin:0px; border-right:0px; }
+ul.bnk,ol.bnk {list-style:none; padding: 0px; margin: 0px;} 
+ol li.bnk, ul li.bnk { display: inline; padding: 0px; margin: 0px; vertical-align:middle; }
+
+/*카렌다 테이블01*/
+.cld_d01 { float: left; width:100%; border-collapse:collapse; margin-top: 7px; }
+.cld_d01 tr th{ height:35px; color: #6f6f6f; font-size: 11px;}
+.cld_d01 tr th.sun{ color: #c59550;}
+.cld_d01 tr th.sat{ color: #8ca0b8;}
+.cld_d01 tr td{ height:20px; text-align: center; font-size: 11px;}
+.cld_d01 tr td a:link { text-decoration: none; color: #bbbbbb; }
+.cld_d01 tr td a:visited { text-decoration: none; color: #bbbbbb; }
+.cld_d01 tr td a:hover { text-decoration:none; color:#646464; font-weight: bold;}
+
+/*카렌다 테이블02*/
+.cld_d02 { float: left; width:100%; border-collapse:collapse; margin-top: 7px; }
+.cld_d02 tr th{ height:35px; color: #6f6f6f; font-size: 11px;}
+.cld_d02 tr th.sun{ color: #c59550;}
+.cld_d02 tr th.sat{ color: #8ca0b8;}
+.cld_d02 tr td{ height:20px; text-align: center; font-size: 11px;}
+.cld_d02 tr td.select{ background-color: #706450; color: #fff;}
+.cld_d02 tr td.sun{ color: #c59550; }
+.cld_d02 tr td.sat{ color: #8ca0b8;}
+.cld_d02 tr td a:link { text-decoration: none; color: #656565; }
+.cld_d02 tr td a:visited { text-decoration: none; color: #656565; }
+.cld_d02 tr td a:hover { text-decoration:none; color:#656565; }
+.cld_d02 tr td.select a:link { text-decoration: none; color: #fff; }
+.cld_d02 tr td.select a:visited { text-decoration: none; color: #fff; }
+.cld_d02 tr td.select a:hover { text-decoration:none; color:#fff; }
+.cld_d02 tr td.select2 a:link { text-decoration: none; color: #bbbbbb; }
+.cld_d02 tr td.select2 a:visited { text-decoration: none; color: #bbbbbb; }
+.cld_d02 tr td.select2 a:hover { text-decoration:none; color:#bbbbbb; }
+.cld_d02 tr td.sun a:link { text-decoration: none; color: #c59550; }
+.cld_d02 tr td.sun a:visited { text-decoration: none; color: #c59550; }
+.cld_d02 tr td.sun a:hover { text-decoration:none; color:#c59550; }
+.cld_d02 tr td.sat a:link { text-decoration: none; color: #8ca0b8; }
+.cld_d02 tr td.sat a:visited { text-decoration: none; color: #8ca0b8; }
+.cld_d02 tr td.sat a:hover { text-decoration:none; color:#8ca0b8; }

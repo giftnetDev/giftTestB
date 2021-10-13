@@ -1,0 +1,15 @@
+#all
+User-agent: *
+Disallow: /
+
+#naver
+User-agent: Yeti
+Disallow:/
+
+#google
+User-agent: Googlebot
+Disallow: /
+User-agent: Googlebot-Image
+Disallow: /
+User-agent: Googlebot-Mobile
+Disallow: /
