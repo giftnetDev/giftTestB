@@ -1627,7 +1627,7 @@ if($mode=="INSERT_GOODS_CHANGE_LOG"){
         echo "<script>alert('INSERT_GOODS_CAHNAGE_LOG-ERROR!');</script>";
         exit;
     }
-
+    
      
 
 }//end of mode
