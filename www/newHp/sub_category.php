@@ -21,6 +21,7 @@
 	
 		//카달로그
 		if(startsWith($cate, '20'))
+        
 			$cate_length = 4;
 		//else
 		//	$cate_length = 6;
