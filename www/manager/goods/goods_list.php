@@ -825,7 +825,7 @@
 			<!-- S: mwidthwrap -->
 			<div id="mwidthwrap">
 
-				<h2>惑前 包府 test2</h2>
+				<h2>惑前 包府 1234</h2>
 				<div class="btnright">
 				<? if ($sPageRight_I == "Y") {?>
 					<a href="javascript:js_write();"><img src="../images/admin/btn_regist_02.gif" alt="殿废" /></a>
