@@ -817,7 +817,7 @@
 
 	require "../../_common/left_area.php";
 ?>
-
+ 
 
 		</td>
 		<td class="contentarea">
@@ -825,7 +825,7 @@
 			<!-- S: mwidthwrap -->
 			<div id="mwidthwrap">
 
-				<h2>상품 관리 문제 발생 해결</h2>
+				<h2>상품 관리 문제 발생 해결1</h2>
 				<div class="btnright">
 				<? if ($sPageRight_I == "Y") {?>
 					<a href="javascript:js_write();"><img src="../images/admin/btn_regist_02.gif" alt="등록" /></a>
